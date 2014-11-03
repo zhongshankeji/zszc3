@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equipro="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . '/style/admin/css/public.css' ?>">
+    <script type="text/javascript" src="<?php echo base_url().'org/ueditor/ueditor.all.min.js' ?>"></script>
+    <script type="text/javascript">
+    window.UEDITOR_HOME_URL = "<?php echo base_url() ?>org/ueditor/";
+    window.onload = function() {
+        window.UEDITOR_CONFIG.initialFrameWidth = 650;
+        window.UEDITOR_CONFIG.initialFrameHeight = 450;
+        var editor = UE.getEditor('pro_text', {
+            //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个  
+            toolbars: [
+                ['bold', 'italic', 'underline', '|', 'insertimage', 'emotion', 'insertvideo', '|', 'link', 'unlink', '|', 'map', '|', 'customstyle', 'paragraph', 'fontfamily', 'fontsize']
+            ],
+            //focus时自动清空初始化时的内容  
+            autoClearinitialContent: false,
+            //关闭字数统计  
+            wordCount: false,
+            //关闭elementPath  
+            elementPathEnabled: false,
+            //默认的编辑区域高度  
+            initialFrameHeight: 300,
+
+            readonly: true
+            //更多其他参数，请参考ueditor.config.js中的配置项  
+        });
+    }
+    </script>
+    <script type="text/javascript" src="<?php echo base_url().'org/ueditor/ueditor.config.js' ?>"></script>
+    <title>Document</title>
+    <style type="text/css">
+    span {
+        color: #f00;
+    }
+    </style>
+</head>
+
+<body>
+
+    <form name="myForm" method="POST">
+    <script>
+    function pass()
+    //交由程序1处理 
+        {
+        document.myForm.action = "<?php echo site_url('admin/check/pass') ?>";
+        document.myForm.submit();
+    } 
+    function notpass()
+    //交由程序2处理 
+        {
+        document.myForm.action = "<?php echo site_url('admin/check/notpass') ?>";
+        document.myForm.submit();
+        }
+    </script>
+        <table class="table">
+            <tr>
+                <td class="th" colspan="10">审核项目</td>
+            </tr>
+            <tr>
+                <td>栏目名称</td>
+                <td>
+                    <label for="">
+                        <?php echo $pro[0]['pro_title'] ?>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>项目状态</td>
+                <td>
+                    <label for="">
+                        <?php switch ($pro[0][ 'pro_status']) { case '0': echo " 正在进行 "; break; case '1': echo "正在审核 "; break; case '2': echo "已结束 "; break; default: echo "发起中 "; break; } ?>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>项目目标</td>
+                <td>
+                    <label for="">
+                        <?php echo $pro[0]['pro_goal'] ?>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>项目图片</td>
+                <td>
+                <?php foreach ($pic as $key=>$val ): ?>
+                    <img src="<?php echo base_url().'../uploads/'.$pic[$key]   ?>" alt="" height="200" />
+                <?php endforeach ?>
+                </td>
+            </tr>
+            <tr>
+                <td>开始时间</td>
+                <td>
+                    <label for="">
+                        <?php echo $pro[0]['pro_start'] ?>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>结束时间</td>
+                <td>
+                    <label for="">
+                        <?php echo $pro[0]['pro_end'] ?>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>项目备注</td>
+                <td>
+                     <textarea name="pro_text" id="pro_text" style="width:900px;height:600px;">
+                    <?php echo $pro[0]['pro_text'] ?> 
+                    </textarea>
+                    
+                </td>
+            </tr>
+          
+            <tr>
+                <td>不通过理由</td>
+                <td >
+                    <input style="width: 650px;" type="text" name="reason" placeholder="审核不通过必填" />
+                </td>
+            </tr>
+            <tr>
+             <input type="hidden" name="pro_id" value="<?php echo $pro[0]['pro_id'] ?>" />
+                
+                <td >
+                    
+                </td>
+
+          <td colspan="10">                
+
+            <input type="button" value="通过" onclick="pass()" class="input_button" />
+            <input type="button" value="不通过" onclick="notpass()" class="input_button" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>
