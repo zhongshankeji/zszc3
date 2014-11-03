@@ -1,0 +1,338 @@
+<?php $this->load->view('pub/head.html'); ?>
+
+<body class="no-sidebar">
+    <!-- 大屏欢迎页 -->
+    <div id="header">
+        <!-- Inner -->
+        <div class="inner">
+            <header>
+                <h1><a href="#" id="logo"><?php echo $title ?></a>
+                </h1>
+            </header>
+        </div>
+        <!-- Nav -->
+        <?php $this->load->view('pub/nav.html'); ?>
+    </div>
+    <div></div>
+<!-- 表单验证需要的JS文件 -->
+<script src="<?php echo base_url().'res/org/' ?>validitor/Validform_v5.3.2.js"></script>
+<!-- 表单验证需要的css文件 -->
+    <!-- main -->
+    <div class="wrapper style1">
+        <div class="container">
+            <div id="left_box" class="row">
+            <form name="myForm" action = "<?php echo site_url('rise/p_rise') ?>"  method="post" class="rise" enctype="multipart/form-data">
+                <div class="12u" style="border:1px solid gray; padding:5px;">
+                    <h2>第一步 项目信息</h2>
+                    <div class="text">
+                            <div class="con">
+                                <div class="nav_ub" style="top: 0px;"></div>
+                                <div class="nav_db" style="bottom: 0px;"></div>
+                                <div class="row no-collapse">
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="项目名称">项目名称</label>
+                                        </div>
+                                        <div class="8u">
+                                            <!-- 修改项目名称判定条件，可以实现项目名称验证 -->
+                                            <input type="text" value="" name="pro_title" class="inputxt" datatype="*6-20" nullmsg="请输入项目名称！" errormsg="项目名称至少6个字,最多18个字！" placeholder="取一个吸引人的名字"/>
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">项目名称至少6个字,最多18个字<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="筹集金额">筹集金额</label>
+                                        </div>
+                                        <div class="4u">
+                                            <input type="text" value="" name="pro_goal" class="inputxt" datatype="n4-5" nullmsg="请输入项目筹集金额！" errormsg="筹集金额在1,000到100,000之间" placeholder="不少于1000元"/>元
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">筹集金额在1,000到100,000之间<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="筹集日期" >筹集日期</label>
+                                        </div>
+                                        <div class="4u">
+                                            <input type="text" value="" name="pro_dur" class="inputxt" datatype="n2-2" nullmsg="请输入项目筹集时长！" errormsg="筹集金额在10天到99天之间" placeholder="10~90天"/>天
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">筹集金额在10天到99天之间<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>
+                                    </div>
+<!-- 图片尚未验证 -->
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="项目封面">项目封面</label>
+                                        </div>
+                                        <div class="3u">
+                                            <input type="file" name="pro_img" style="border:none;" value="上传">
+                                        </div>
+                                        <div class="4u">
+                                            <span>支持jpg、jpeg、png、gif格式，大小不超过5M。建议尺寸：368 x 256px</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="项目视频">项目视频</label>
+                                        </div>
+                                        <div class="8u">
+                                            <input type="text" value="" ignore="ignore" name="pro_video" class="inputxt" datatype="url" nullmsg="请输入优酷网“Flash地址”" errormsg="网址有误" placeholder="形如：http://player.youku.com/player.php/Type/Folder/Fid/22987453/Ob/1/sid/XNTc4NTY2OTY0/v.swf"/>
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">请输入正确的优酷网“Flash”地址，以swf后缀的播放地址<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="项目简述">项目简述</label>
+                                        </div>
+                                        <div class="8u">
+                                            <input type="text" value="" name="pro_des" class="inputxt" datatype="*10-30" nullmsg="请输入项目描述！" errormsg="项目描述至少10个字,最多30个字！" placeholder="对项目进行简单描述，让大家一目了然了解项目"/>
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">项目描述至少10个字,最多30个字！<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="项目详述">项目详述</label>
+                                        </div>
+                                        <div class="8u">
+                                            <?php $this->load->view('pub/text.html'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="12u" style="border:1px solid gray;padding:5px;">
+                    <h2>第二步 项目预算</h2>
+                    <div class="text">
+                            <div class="con">
+                                <div class="row no-collapse">
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="披露计划">上传披露计划</label>
+                                        </div>
+                                        <div class="3u">
+                                            <input type="file" style="border:none;" value="上传">
+                                        </div>
+                                        <div class="4u"><span>支持doc、xls、docx格式，大小不超过5M</span>
+                                        </div>
+                                    </div>
+                                    <div class="12u">
+                                        <div class="2u -6u">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="12u" style="border:1px solid gray;padding:5px;">
+                    <h2>第三步 发起人信息</h2>
+                    <div class="text">
+                            <div class="con">
+                                <div class="row no-collapse">
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="真实姓名">真实姓名</label>
+                                        </div>
+                                        <div class="4u">
+                                            <input type="text" value="" name="user_real_name" class="inputxt" datatype="s2-4" nullmsg="请输入真实的姓名！" errormsg="正确的姓名为2-4个汉子" placeholder="身份证上的名字"/>
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">正确的姓名为2-4个汉字<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="手机号">手机号</label>
+                                        </div>
+                                        <div class="4u">
+                                            <input type="text" value="" name="user_phone" class="inputxt" datatype="m" nullmsg="请输入手机号！" errormsg="请输入正确的手机号" placeholder="正在使用的手机号"/>
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">请输入正确的手机号<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="紧急联系人">紧急联系人</label>
+                                        </div>
+                                        <div class="4u">
+                                            <input type="text" value="" name="user_love_name" class="inputxt" datatype="s2-4" nullmsg="请输入真实的姓名！" errormsg="正确的姓名为2-4个汉子" placeholder="身份证上的名字"/>
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">正确的姓名为2-4个汉字<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>                                    
+                                    </div>
+
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="手机号">手机号</label>
+                                        </div>
+                                        <div class="4u">
+                                            <input type="text" value="" name="user_phone" class="inputxt" datatype="m" nullmsg="请输入手机号！" errormsg="请输入正确的手机号" placeholder="正在使用的手机号"/>
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">请输入正确的手机号<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="12u">
+                                        <h3>补充银行信息</h3>
+                                    </div>
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="银行名称">银行名称</label>
+                                        </div>
+                                        <div class="4u">
+                                            <select name="user_bank_name" style="width:90%;">
+                                            <option selected value="">请选择银行</option>
+                                            <option value="27" >广发银行</option>
+                                            <option value="35" >兴业银行</option>
+                                            <option value="24" >中信银行</option>
+                                            <option value="34" >招商银行</option>
+                                            <option value="13" >交通银行</option>
+                                            <option value="36" selected>中国银行</option>
+                                            <option value="37" >光大银行</option>
+                                            <option value="28" >民生银行</option>
+                                            <option value="25" >建设银行</option>
+                                            <option value="23" >工商银行</option>
+                                            <option value="15" >农业银行</option>
+                                            <option value="12" >深发银行</option>
+                                            <option value="19" >平安银行</option>
+                                            <option value="22" >华夏银行</option>
+                                            <option value="26" >浦发银行</option>
+                                            <option value="38" >东亚银行</option>
+                                            <option value="33" >北京银行</option>
+                                            <option value="32" >宁波银行</option>
+                                            <option value="29" >上海银行</option>
+                                            <option value="44" >包商银行</option>
+                                            <option value="46" >杭州银行</option>
+                                            <option value="40" >南京银行</option>
+                                            <option value="41" >天津银行</option>
+                                            <option value="43" >徽商银行</option>
+                                            <option value="39" >广州银行</option>
+                                            <option value="42" >渤海银行</option>
+                                            <option value="45" >成都银行</option>
+                                            <option value="47" >大连银行</option>
+                                            <option value="48" >重庆银行</option>
+                                            <option value="49" >邮政储蓄银行</option>
+                                            <option value="50" >汉口银行</option>
+                                            <option value="51" >长沙银行</option>
+                                            <option value="52" >河北银行</option>
+                                            <option value="53" >温州银行</option>
+                                            <option value="54" >盛京银行</option>
+                                            <option value="57" >江苏银行</option>
+                                            <option value="58" >内蒙古银行</option>
+                                            <option value="63" >洛阳银行</option>
+                                            <option value="64" >郑州银行</option>
+                                            <option value="65" >齐鲁银行</option>
+                                            <option value="66" >东莞银行</option>
+                                            <option value="67" >福建海峡银行</option>
+                                            <option value="68" >厦门银行</option>
+                                            <option value="69" >浙商银行</option>
+                                            <option value="70" >浙江泰隆银行</option>
+                                            <option value="73" >富滇银行</option>
+                                            <option value="74" >桂林银行</option>
+                                            <option value="75" >贵阳银行</option>
+                                            <option value="76" >晋商银行</option>
+                                            <option value="78" >长安银行</option>
+                                            <option value="79" >乌鲁木齐银行</option>
+                                            <option value="80" >宁夏银行</option>
+                                            <option value="81" >兰州银行</option>
+                                            <option value="82" >赣州银行</option>
+                                            <option value="88" >华侨银行</option>
+                                            <option value="87" >永亨银行</option>
+                                            <option value="86" >星展银行</option>
+                                            <option value="85" >渣打银行</option>
+                                            <option value="84" >汇丰银行</option>
+                                            <option value="83" >花旗银行</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="开户支行">开户支行</label>
+                                        </div>
+                                        <div class="4u">
+                                            <input type="text" name="user_subbank_name" placeholder="请输入正确的支行名称">
+                                        </div>
+                                    </div>
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="开户姓名">开户姓名</label>
+                                        </div>
+                                        <div class="4u">
+                                            <input type="text" value="" name="user_bank_holder" class="inputxt" datatype="s2-4" nullmsg="请输入真实的姓名！" errormsg="正确的姓名为2-4个汉子" placeholder="银行开户时，填写的名字"/>
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">正确的姓名为2-4个汉字<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>                                    
+                                    </div>
+                                    <div class="12u">
+                                        <div class="2u">
+                                            <label for="银行账号">银行账号</label>
+                                        </div>
+                                        <div class="4u">
+                                            <input type="text" value="" name="user_bank_num" class="inputxt" datatype="n19-19" nullmsg="请输入正确的银行账号" errormsg="正确的银行账号是19位" placeholder="请谨慎输入银行账号，便于打款"/>
+                                        </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">正确的银行账号是19位<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="12u">
+                                        <div class="2u -6u">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="12u" style="border:1px solid gray;padding:5px;">
+                    <h2>第四步 提交审核</h2>
+                    <div class="text">
+                            <div class="con">
+                                <div class="row no-collapse">
+                                    <div class="12u">
+                                        <div class="2u -5u">
+                                            <input type="submit" class="button "  value="提交并预览">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+    $('.rise').Validform({
+        tiptype:2
+    });
+    </script>
+    <?php $this->load->view('pub/foot.html'); ?>

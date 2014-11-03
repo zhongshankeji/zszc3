@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . '/style/admin/css/public.css' ?>">
+	<title>Document</title>
+</head>
+<body>
+		<table class="table">
+		<tr>
+			<td class="th" colspan="10">查看链接</td>
+		</tr>
+
+		<tr>
+			<td>链接ID</td>
+			<td>链接名称</td>
+			<td>链接URL</td>
+
+		</tr>
+		
+		<?php foreach($href as $v): ?>
+		<tr>
+			<td><?php echo $v['href_id'] ?></td>
+			<td><?php echo $v['href_name'] ?></td>
+			<td><?php echo $v['href_url'] ?> </td>
+		</tr>
+		<?php endforeach ?>
+	</table>
+</body>
+</html>

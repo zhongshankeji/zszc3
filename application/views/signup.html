@@ -1,0 +1,37 @@
+<?php $this->load->view('pub/head.html'); ?>
+
+<body class="homepage">
+    <!-- Header -->
+    <div id="header">
+
+        <!-- Inner -->
+        <div class="inner">
+            <header>
+                <h1><a href="#" id="logo">注册</a>
+                </h1>
+                <hr />
+            </header>
+            <form action="<?php echo site_url('log/p_signup') ?>" method="POST">
+                <input type="text" name="user_email" class="text" placeholder="注册邮箱">
+                <input type="text" name="user_name" class="text" placeholder="用户名">
+                <input type="password" name="user_password" class="text" placeholder="密码">
+                <br class="clear">
+                <input type="checkbox" class="select" checked>
+                <lable>同意<a href="">众善合约</a>
+                </lable>
+                <input type="submit" class="button circled scrolly" value="加入众善">
+            </form>
+        </div>
+        <?php $this->load->view('pub/nav.html'); ?>
+        <nav id="sub-nav">
+            <ul class="title-list">
+                <li class="active">
+                    <a href="<?php echo site_url('log/s_signin') ?>" style="color:#fff;">已有账号，立刻登录</a>
+                </li>
+                <li class="active"><a href="<?php echo site_url('welcome/help') ?>" style="color:#fff;">帮助中心</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+    <?php $this->load->view('pub/foot.html'); ?>

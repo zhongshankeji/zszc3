@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . '/style/admin/css/public.css' ?>">
+	<title>Document</title>
+</head>
+<body>
+	<table class="table">
+		<tr>
+			<td class="th" colspan="10">查看项目</td>
+		</tr>
+
+		<tr>
+			<td>项目标题</td>
+			<td>项目状态</td>
+			<td>项目目标</td>
+			<td>持续时间</td>
+			<td>项目类型</td>
+			<td>项目描述</td>
+		</tr>
+		
+		<?php foreach($pro as $v): ?>
+		<tr>
+			<td><?php echo $v['pro_title'] ?></td>
+			<td><?php  
+			switch ($v['pro_status']) {
+				case '0':
+					echo '正在进行';
+					break;
+				case '1':
+					echo '正在审核';
+					break;
+				case '2':
+					echo '已结束';
+					break;
+				case '3':
+					echo '发起中';
+					break;
+				default:
+					echo '状态错误';
+					break;
+			}
+			 ?></td>
+			<td><?php echo $v['pro_goal'] ?></td>
+			<td><?php echo $v['pro_dur']?></td>
+			<td><?php echo $v['pro_class'] ?></td>
+			<td><?php echo $v['pro_des'] ?></td>
+			
+			<td>
+				
+				<?php if($v['pro_status']==1){ ?>
+				[<a href="<?php echo site_url('admin/all_pro/edit_pro/'.$v['pro_id']) ?>">审核项目</a>]
+				<?php } else if( $v['pro_status']==2) {?>
+					已结束
+				<?php }else{ ?>
+					已审核
+					
+				<?php } ?>
+				[<a href="<?php echo site_url('admin/all_pro/delete_pro/'.$v['pro_id']) ?>">删除项目</a>]
+			</td>
+		</tr>
+		<?php endforeach ?>
+	</table>
+	<div class="page">
+		<?php echo $links ?>
+	</div>
+
+</body>
+</html>

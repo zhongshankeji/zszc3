@@ -1,0 +1,128 @@
+<?php $this->load->view('pub/head.html'); ?>
+
+<!-- 表单验证需要的JS文件 -->
+<script src="<?php echo base_url().'res/org/' ?>validitor/Validform_v5.3.2.js"></script>
+<!-- 表单验证需要的css文件 -->
+<body class="right-sidebar">
+    <!-- 大屏欢迎页 -->
+    <div id="header">
+        <!-- Inner -->
+        <div class="inner">
+            <header>
+                <h1><a href="#" id="logo">捐助项目</a>
+                </h1>
+            </header>
+        </div>
+        <!-- Nav -->
+        <?php $this->load->view('pub/nav.html'); ?>
+    </div>
+    <div>
+    </div>
+    <div class="wrapper style1">
+
+        <div class="container">
+            <div class="row">
+                <div class="8u skel-cell-mainContent" id="content">
+                                                    <!-- tab页项目详情 -->
+                    <article id="main">
+                        <header>
+                            <h2>
+                                <a href="#">
+                                    <?php echo $pro[0][ 'pro_title'] ?>
+                                </a>
+                            </h2>
+                            <span class="byline">
+                                <?php echo $pro[0][ 'pro_des'] ?>
+                            </span>
+                        </header>
+                    <?php $this->load->view('pub/tab.html'); ?>
+                </article>
+                </div>
+
+
+                <div class="4u" id="sidebar">
+                    <hr class="first" />
+                    <section>
+                        <header>
+                            <h3><a href="#" class="icon icon-heart">喜欢&nbsp;&nbsp;&nbsp;</a><a href="" class="icon icon-bookmark">订阅</a>
+                            </h3>
+                        </header>
+                        <br>
+                        <article>
+                            <div class="card">
+                                <a href="#" class="image image1`">
+                                <img src="<?php echo base_url().'uploads/'.$pro[0]['pro_img'] ?>" alt="" />
+                            </a>
+                                <header>
+                                    <p>累计捐助</p>
+                                    <h2>￥
+                                        <?php echo $pro_all ?>
+                                    </h2>
+                                    <p>该项目必须在 2014年11月1日 前得到
+                                        <?php echo $pro[0][ 'pro_goal'] ?>元 的支持才能成功！</p>
+                                </header>
+                                <p>
+                                    <?php echo $don_num ?>人捐助｜20人喜欢｜30人订阅</p>
+                                <p>剩余时间：3 天</p>
+                                <form action="<?php echo site_url('don/sure_donate') ?>" method="post" class="donate" style="margin:0;">
+                                    <p>捐助金额：
+                                        <input type="text" value="" name="don_money" class="inputxt" datatype="/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/" nullmsg="请输入项目筹集金额！" errormsg="请输入正确的整数金额" placeholder="不少于1元">元</p>
+                                    <p>
+                                        <div class="Validform_checktip"></div>
+                                        <div class="info">请填写捐助金额，最少1元
+                                            <span class="dec">
+                                                <s class="dec1">&#9670;</s>
+                                                <s class="dec2">&#9670;</s>
+                                            </span>
+                                        </div>
+                                    </p>
+                                    <input type="hidden" name="pro_id" value="<?php echo $pro_id ?>">
+                                    <br class="clear">
+                                    <input type="submit" href="" class="button" value="立即捐助" style="width:100%;">
+                                </form>
+                            </div>
+                        </article>
+                    </section>
+                    <hr />
+                    <!--                    评论框-->
+                    <section>
+                        <header>
+                            <h3><a href="#">项目发起人： <?php echo $pro_user[0]['user_name'] ?> </a>
+                            </h3>
+                        </header>
+                        <p>
+                            项目发起人简介
+                        </p>
+                        <div class="row half no-collapse">
+                            <div id="SOHUCS"></div>
+                            <script>
+                            (function() {
+                                var appid = 'cyri2fJ2c',
+                                    conf = 'prod_335ec843ca92e9586e80a73a153cc6b3';
+                                var doc = document,
+                                    s = doc.createElement('script'),
+                                    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+                                s.type = 'text/javascript';
+                                s.charset = 'utf-8';
+                                s.src = 'http://assets.changyan.sohu.com/upload/changyan.js?conf=' + conf + '&appid=' + appid;
+                                h.insertBefore(s, h.firstChild);
+                                // e.preventDefault;
+                            })()
+                            </script>
+                        </div>
+
+                        <footer>
+                            <a href="#" class="button circled scrolly ">进入公益圈讨论</a>
+                        </footer>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+    <script>
+    $('.donate').Validform({
+        tiptype: 2
+    });
+    </script>
+    <?php $this->load->view('pub/foot.html'); ?>

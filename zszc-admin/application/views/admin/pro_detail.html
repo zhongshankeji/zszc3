@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/css/public.css' ?>">
+    <title>Document</title>
+</head>
+
+<body>
+    <table class="table">
+        <tr>
+            <td class="th" colspan="10">项目查看</td>
+        </tr>
+        <tr>
+            <td>项目标题</td>
+            <td>
+                <label for="">
+                    <?php echo $pro[0][ 'pro_title'] ?>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>项目状态</td>
+            <td>
+                <label for="">
+                    <?php switch ($pro[0][ 'pro_status']) { case '0': echo "正在进行"; break; case '1': echo "正在审核"; break; case '2': echo "已结束"; break; default: echo "发起中"; break; } ?>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>项目目标</td>
+            <td>
+                <label for="">
+                    <?php echo $pro[0][ 'pro_goal'] ?>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>项目图片</td>
+            <td>
+                <?php foreach ($pic as $key=>$val ): ?>
+
+                <img src="<?php echo base_url().'../uploads/'.$pic[$key]   ?>" alt="" height="200" />
+                <?php endforeach ?>
+            </td>
+        </tr>
+        <tr>
+            <td>开始时间</td>
+            <td>
+                <label for="">
+                    <?php echo $pro[0][ 'pro_start'] ?>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>结束时间</td>
+            <td>
+                <label for="">
+                    <?php echo "Y-m-d",$pro[0][ 'pro_end'] ?>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>项目概要</td>
+            <td>
+                <textarea id="pro_text" name="pro_text" style="width:550px;height:160px;">
+                    <?php echo $pro[0][ 'pro_text'] ?>
+                </textarea>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

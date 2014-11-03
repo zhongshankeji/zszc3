@@ -1,0 +1,97 @@
+<!-- Footer -->
+<div id="footer">
+    <div class="container">
+        <!--                    <hr />-->
+        <div class="row">
+            <div class="12u">
+                <!-- Contact -->
+                <section class="contact">
+                    <header>
+                        <h3>友情链接</h3>
+                    </header>
+                    <p>
+                    <?php if($href){?>
+                        <?php foreach ($href as $value): ?>
+                            <a href="<?php echo $value['href_url'] ?>">&nbsp;<?php echo $value['href_name'] ?>&nbsp;&nbsp;</a>
+                        <?php endforeach ?>
+                        <?php }else{ ?>
+                        <a href=" <?php echo site_url('welcome/help') ?>">众善网诚邀您的加入</a>
+                        <?php } ?>
+                    </p>
+                    <ul class="icons" id="ff">
+                        <li>
+                            <a href="#" class="icon icon-renren">
+                                <span>人人</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="icon icon-weibo">
+                                <span>新浪</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="icon icon-weixin">
+                                <span>微信</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="icon icon-tencent-weibo">
+                                <span>腾讯微博</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="icon icon-qq">
+                                <span>公益群</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <!-- Copyright -->
+                <div class="copyright">
+                    <ul class="menu">
+			<li><a href="<?php echo base_url().'zszc-admin/index.php'?>">项目管理后台</a></li>
+                        <li>&copy; 众善科技. 版权所有</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="bottom_tools">
+    <div class="qr_tool">二维码</div>
+    <a id="feedback" href="http://bbs.allheart.cn" title="意见反馈">意见反馈</a>
+    <a id="scrollUp" href="javascript:;" title="返回顶部"></a>
+    <img class="qr_img" src="<?php echo base_url().'res/' ?>images/qr_img.png" alt="">
+</div>
+<script>
+$(function() {
+    var $body = $(document.body);;
+    var $bottomTools = $('.bottom_tools');
+    var $qrTools = $('.qr_tool');
+    var qrImg = $('.qr_img');
+    $(window).scroll(function() {
+        var scrollHeight = $(document).height();
+        var scrollTop = $(window).scrollTop();
+        var $footerHeight = $('#ff').outerHeight(true);
+        var $windowHeight = $(window).innerHeight();
+        scrollTop > 50 ? $("#scrollUp").fadeIn(200).css("display", "block") : $("#scrollUp").fadeOut(200);
+        $bottomTools.css("bottom", scrollHeight - scrollTop - $footerHeight > $windowHeight ? 40 : $windowHeight + scrollTop + $footerHeight + 40 - scrollHeight);
+    });
+    $('#scrollUp').click(function(e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0
+        });
+    });
+    $qrTools.hover(function() {
+        qrImg.fadeIn();
+    }, function() {
+        qrImg.fadeOut();
+    });
+});
+</script>
+</body>
+
+</html>

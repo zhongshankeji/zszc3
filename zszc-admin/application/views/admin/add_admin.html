@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . '/style/admin/css/public.css' ?>">
+    <title>Document</title>
+    <style type="text/css">
+    span {
+        color: #f00;
+    }
+    </style>
+</head>
+
+<body>
+    <form action="<?php echo site_url('admin/admin_user/add') ?>" method="POST">
+        <table class="table">
+            <tr>
+                <td class="th" colspan="10">添加用户</td>
+            </tr>
+            <tr>
+                <td>用户名称</td>
+                <td>
+                    <input type="text" name="user_name" value="<?php echo set_value('user_name') ?>" />
+                    <?php echo form_error( 'user_name', '<span>', '</span>') ?>
+                </td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td>
+                    <input type="password" name="password" placeholder="至少6位" />
+                </td>
+            </tr>
+            <tr>
+                <td>确认密码：</td>
+                <td>
+                    <input type="password" name="password2" placeholder="至少6位" />
+                </td>
+            </tr>
+            <tr>
+                <td>用户类型</td>
+                <td>
+                    <input name="type" type="radio" value="0" <?php echo set_radio( 'type', '0', TRUE) ?>checked/>普通用户
+                    <input name="type" type="radio" value="1" <?php echo set_radio( 'type', '1') ?>/>管理员
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    <input type="submit" value="添加" class="input_button" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!-- Carousel -->
+    <div class="carousel">
+        <div class="reel">
+            <!-- 使用foreach循环展示项目 -->
+           <h3>推荐项目</h3>
+            <article>
+                <?php foreach ($pro as $key ): ?>                  
+                <article class="3u special">
+                    <div class="card">
+                    <a href="<?php echo site_url().'/pro/thumb/'.$key['pro_id'] ?>" class="image">
+                        <img src="<?php echo base_url().'uploads/'.$key['pro_img'] ?>" alt="" />
+                    </a>
+                    <header>
+                        <h3><a href="<?php echo site_url().'/pro/thumb/'.$key['pro_id'] ?>"><?php echo $key['pro_title'] ?></a></h3>
+                    </header>
+                    <p> <?php echo $don_num[$key['pro_id']] ?>人捐助｜已捐助 <?php echo $pro_all[$key['pro_id']] ?>元</p>
+                    <p>项目进度： <?php echo $process[$key['pro_id']] ?> </p>
+                    <p><?php echo $key['pro_dur'] ?>天后结束筹款</p>
+                    </div>
+                </article>
+                <?php endforeach ?>             
+            </article>
+        </div>
+    </div>

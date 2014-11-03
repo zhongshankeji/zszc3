@@ -1,0 +1,29 @@
+<nav id="nav">
+    <ul>
+        <li><a href="<?php echo site_url('welcome/index') ?>">首页</a>
+        </li>
+        <li><a href="<?php echo site_url('welcome/donatelist') ?>">捐助项目</a>
+        </li>
+        <li><a href="<?php echo site_url('rise/index') ?>">发起项目</a>
+        </li>
+        <li><a href="<?php  echo site_url('welcome/help') ?>">了解众善</a>
+        </li>
+        <li>
+            <?php if($this->session->userdata('user_name')) {?>
+            <span><?php echo $this->session->userdata('user_name') ?></span>
+            <ul>
+               <li><a href="<?php echo site_url('user/s_my') ?>">个人信息</a>
+                </li>
+                <li><a href="<?php echo site_url('user/s_my') ?>">发起的项目</a>
+                </li>
+                <li><a href="<?php echo site_url('user/s_my') ?>">捐助的项目</a>
+                </li>
+                <li><a href="<?php echo site_url('log/quit') ?>">退出</a>
+                </li>
+            </ul>
+            <?php }else{ ?>
+            <span><a href="<?php echo site_url('log/s_signin') ?>">登录</a> </span>
+            <?php } ?>
+        </li>
+    </ul>
+</nav>

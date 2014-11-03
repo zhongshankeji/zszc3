@@ -1,0 +1,31 @@
+<?php $this->load->view('pub/head.html'); ?>
+
+<body class="homepage">
+    <!-- Header -->
+    <div id="header">
+
+        <!-- Inner -->
+        <div class="inner">
+           
+            <header>
+                <h1><a href="#" id="logo">登 录</a></h1>
+                <hr />
+            </header>            
+                    <form action="<?php echo site_url('log/p_signin') ?>" method="post">
+                    <input type="text" name="user_name" class="text" placeholder="用户名">
+                    <input type="password" name="user_password" class="text" placeholder="密码">
+                    <input type="submit" class="button circled scrolly" value="进入众善">
+                    </form>
+        </div>
+        <?php $this->load->view('pub/nav.html'); ?>
+        <nav id="sub-nav">
+                <ul class="title-list">
+                    <li class="active">
+                        <a href="<?php echo site_url('log/s_signup') ?>" style="color:#fff;">立刻注册</a>
+                    </li>
+                    <li class="active"><a href="<?php echo site_url('log/s_forget') ?>" style="color:#fff;">忘记密码</a>
+                    </li>
+                </ul>        
+        </nav>
+    </div>
+    <?php $this->load->view('pub/foot.html'); ?>

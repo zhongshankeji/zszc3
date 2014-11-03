@@ -1,0 +1,57 @@
+<script>
+$(function() {
+    //设计案例切换
+    $('.title-list li').mouseover(function() {
+        var liindex = $('.title-list li').index(this);
+        $(this).addClass('on').siblings().removeClass('on');
+        $('.product-wrap div.product').eq(liindex).fadeIn(150).siblings('div.product').hide();
+        var liWidth = $('.title-list li').width();
+        $('.case .title-list p').stop(false, true).animate({
+            'left': liindex * liWidth + 'px'
+        }, 300);
+    });
+});
+</script>
+<div class="case">
+    <div class="title cf">
+        <ul class="title-list fl cf ">
+            <li class="on">项目主页</li>
+            <li>项目披露</li>
+            <li>项目历程</li>
+            <li>讨论组</li>
+            <li>捐赠者榜单</li>
+            <p><b></b>
+            </p>
+        </ul>
+    </div>
+    <div class="product-wrap">
+        <!--项目主页-->
+        <div class="product">
+        <!--                        项目视频-->
+        <?php if($pro[0][ 'pro_video']){ ?>
+        <p>
+            <embed src="<?php echo $pro[0]['pro_video'] ?>" allowfullscreen="ture" isAutoPlay=true quality="high" width="780" height="500" align="middle" type="application/x-shockwave-flash" flashvars="winType=index" style="visibility:visible;" />
+        </p>
+        <?php } ?>
+        <!--                        项目图片格式-->
+        <?php echo htmlspecialchars_decode($pro[0][ 'pro_det']) ?>
+
+        </div>
+        <!--项目披露-->
+        <div class="product">
+                <p>项目披露</p>
+        </div>
+        <!--项目历程-->
+        <div class="product">
+        </div>
+        <!--案例4-->
+        <div class="product">
+
+        </div>
+        <!--捐赠者榜单-->
+        <div class="product">
+                <p>捐赠者榜单</p>
+            
+        </div>
+    </div>
+</div>

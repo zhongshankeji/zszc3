@@ -1,0 +1,127 @@
+<?php 
+$config=array(
+	'signup'=>array(
+		array(
+			'field'=>'user_name',
+			'label'=>'用户名',
+			'rules'=>'required|min_length[6]'
+			),
+		array(
+			'field'=>'password',
+			'label'=>'密码',
+			'rules'=>'required|min_length[6]|max_length[10]'
+			)
+		),
+	'pro'=>array(
+		array(
+			'field'=>'pro_title',
+			'label'=>'项目名称',
+			'rules'=>'required'
+			),
+		array(
+			'field'=>'pro_goal',
+			'label'=>'项目目标',
+			'rules'=>'required'
+			),
+		array(
+			'field'=>'pro_remark',
+			'label'=>'项目备注',
+			'rules'=>'required'
+			)
+		),
+
+	'cate'	=> array(
+			array(
+				'field'	=> 'cname',
+				'label'	=> '栏目名称',
+				'rules'	=> 'required|max_length[20]'
+				),
+
+		),
+	'admin'=>array(
+			array(
+				'field'	=> 'user_name',
+				'label'	=> '用户名',
+				'rules'	=> 'required'	
+				)
+		),
+	'pro_info'=>array(
+			array(
+				'field'=>'pro_title',
+				'label'=>'项目名',
+				'rules'=>'required|max_length[30]'
+			),
+			array(
+				'field'=>'content',
+				'label'=>'项目描述',
+				'rules'=>'required|max_length[20000]'
+				),
+			array(
+				'field'=>'user_goal',
+				'label'=>'项目金额',
+				'rules'=>'required|is_natural|less_than[100001]'
+				),
+			array(
+				'field'=>'thumb',
+				'label'=>'文件',
+				'rules'=>'requried'
+				),
+			array(
+				'field'=>'thumb1',
+				'label'=>'文件',
+				'rules'=>'requried'
+				),
+			array(
+				'field'=>'thumb2',
+				'label'=>'文件',
+				'rules'=>'requried'
+				),
+		),
+	'riser_info'=>array(
+			array(
+				'field'=>'riser_name',
+				'label'=>'发起人姓名',
+				'rules'=>'required'
+				),
+			array(
+				'field'=>'riser_ID_num',
+				'label'=>'身份证',
+				'rules'=>'required|min_length[18]|max_length[18]|is_natural'
+				),
+			array(
+				'field'=>'user_email',
+				'label'=>'发起人邮箱',
+				'rules'=>'required|valid_email'
+				),
+			array(
+				'field'=>'user_phone',
+				'label'=>'发起人电话',
+				'rules'=>'required|min_length[11]|max_length[11]|is_natural'
+				),
+			array(
+				'field'=>'riser_team_name',
+				'label'=>'项目团队名称',
+				'rules'=>'required'
+				),
+			array(
+				'field'=>'riser_bank_name',
+				'label'=>'银行名',
+				'rules'=>'required'
+				),
+			array(
+				'field'=>'riser_sub-bank_name',
+				'label'=>'银行分行名',
+				'rules'=>'required'
+				),
+			array(
+				'field'=>'riser_bank_holder',
+				'label'=>'开户名',
+				'rules'=>'required'
+				),
+			array(
+				'field'=>'riser_bank_num',
+				'label'=>'银行账号',
+				'rules'=>'required|min_length[19]|max_length[19]'
+				),
+		)
+	);

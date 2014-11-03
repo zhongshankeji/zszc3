@@ -1,0 +1,52 @@
+<?php $this->load->view('pub/head.html'); ?>
+<body class="homepage">
+    <!-- 大屏欢迎页 -->
+    <div id="header">
+        <!-- Inner -->
+        <div class="inner">
+            <header>
+                <h1><a href="#" id="logo">众善网 帮中国人做点好事儿！</a></h1>
+                <hr />
+                <span class="byline">众善网致力打造透明，高效，简洁的公益环境</span>
+            </header>
+            <footer>
+                <?php if($this->session->userdata('user_name')){ ?>
+                                <a href="<?php echo site_url('welcome/donatelist') ?>" class="button circled scrolly">捐助项目</a>
+                <?php }else{ ?>
+                <a href="<?php echo site_url('log/s_signin') ?>" class="button circled scrolly">加入众善</a>
+                <?php } ?>
+            </footer>
+        </div>
+        <!-- Nav -->
+        <?php $this->load->view('pub/nav.html'); ?>
+    </div>
+        <!-- Banner -->
+    <div id="banner">
+        <h2>你好！欢迎来到 <strong>众善网</strong>.</h2>
+        <span class="byline">
+                    众善，人人奉献一点爱心，世界就会不同。我们建造一个透明的公益平台，让大家放心的奉献爱心。
+                </span>
+    </div>
+    <div class="carousel">
+            <div class="reel">
+                <!-- <h2>推荐项目</h2> -->
+                 <?php foreach ($pro as $key ): ?>   
+                <article>
+                    <div class="card">
+                    <a href="<?php echo site_url().'/pro/thumb/'.$key['pro_id'] ?>" class="image">
+                        <img src="<?php echo base_url().'uploads/'.$key['pro_img'] ?>" alt="" />
+                    </a>
+                    <header>
+                        <h3><a href="<?php echo site_url().'/pro/thumb/'.$key['pro_id'] ?>"><?php echo $key['pro_title'] ?></a></h3>
+                    </header>
+                    <p> <?php echo $don_num[$key['pro_id']] ?>人捐助｜已捐助 <?php echo $pro_all[$key['pro_id']] ?>元</p>
+                    <p><?php echo $key['pro_dur'] ?>天后结束筹款</p>
+                </div>
+                </article>
+                <?php endforeach ?>             
+            </div>
+        </div>
+    <!-- 页脚 -->
+<?php $this->load->view('pub/foot.html'); ?>
+
+

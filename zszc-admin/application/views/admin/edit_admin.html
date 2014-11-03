@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="<?php echo base_url().'style/admin/css/public.css' ?>" />
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="<?php echo site_url('admin/admin_user/edit') ?>" method="post">
+        <table class="table">
+            <tr class="th">
+                <td>用户ID</td>
+                <td>
+                    <label for="">
+                        <?php echo $admin[0][ 'user_id'] ?>
+                    </label>
+                </td>
+            </tr>
+            <tr class="th">
+                <td>用户名</td>
+                <td>
+                    <input type="text" name="user_name" value="<?php echo $admin[0]['user_name'] ?>" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

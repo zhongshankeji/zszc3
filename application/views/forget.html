@@ -1,0 +1,32 @@
+<?php $this->load->view('pub/head.html'); ?>
+
+<body class="homepage">
+    <!-- Header -->
+    <div id="header">
+
+        <!-- Inner -->
+        <div class="inner">
+           
+            <header>
+                <h1><a href="#" id="logo">忘记密码</a></h1>
+                <hr />
+            </header>            
+                    <form action="<?php echo site_url('log/p_forget') ?>" method="post">
+                    <input type="text" name="user_name" class="text" placeholder="用户名">
+                    <input type="text" name="user_email" class="text" placeholder="邮箱">
+                    <input type="submit" class="button circled scrolly" value="发送邮件">
+                    </form>
+        </div>
+        <?php $this->load->view('pub/nav.html'); ?>
+        <nav id="sub-nav">
+                <ul class="title-list">
+                    <li class="active">
+                        <a href="<?php echo site_url('log/s_signin') ?>" style="color:#fff;">登录</a>
+                    </li>
+                    <li class="active"><a href="<?php echo site_url('log/s_signup') ?>" style="color:#fff;">注册</a>
+                    </li>
+                </ul>        
+        </nav>
+    </div>
+    </div>
+    <?php $this->load->view('pub/foot.html'); ?>
