@@ -157,6 +157,7 @@ class Rise extends MY_Controller {
 		// 跳转到项目预览页
 		redirect('pro/thumb/'.$pro_id);
 	}
+
 }
 
 /* End of file rise.php */

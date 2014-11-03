@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Don extends MY_Controller {
+class Don extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
@@ -23,7 +23,8 @@ class Don extends MY_Controller {
 		$user=$this->pro_info->pro_user($pro_id);
 
 		$pro_title=$project[0]['pro_title'];
-		$user_name=$this->session->userdata('user_name');
+		$user_id=$this->session->userdata('user_id');
+		
 		//获取IP
 		$onlineip = "";
 		
@@ -43,15 +44,18 @@ class Don extends MY_Controller {
 		$pay_code=$bank_id;
 		$pay_amt=$don_money;
 
-		//汇付宝返回信息跳转页URL
-		$notify_url='http://www.allheart.cn/style/'."Notify.php";
+		// 汇付宝返回信息跳转页URL
+		// $notify_url='http://www.allheart.cn/style/'."Notify.php";
+		// $return_url='http://www.allheart.cn/style/'.'don/return_url';
+
+		$notify_url=site_url('don/notify_url');
 		$return_url=site_url('don/return_url');
 
 		$user_ip=$onlineip;
 		$goods_name=$pro_title;
 		$goods_num=1;
 		$goods_note='none';
-		$remark=$pro_id.'/'.$user_name;
+		$remark=$pro_id.'/'.$user_id;
 		
 		$key = "78A19858A9FD41EE8CAFE170";
 		//数据签名组成
@@ -95,6 +99,7 @@ class Don extends MY_Controller {
 		$this->load->view('donate.html',$data);
 
 	}
+	
 	public function return_url(){
 		// 获取第三方支付返回的数据包
 		$result=$_GET['result'];
@@ -126,24 +131,64 @@ class Don extends MY_Controller {
 		$sign=md5($signStr);
 		
 		$remark2=explode('/',$remark);
-		$user_name = $remark2[1];
-
-		$user=$this->user_info->check_user_name($user_name);
-		$user_id=$user[0]['user_id'];
+		// $user_id = $this->input->cookie('user_id');
+		$user_id=$remark2[1];
+		
+		
+		// $user=$this->user_info->check_user_name($user_name);
+		// $user_id=$user[0]['user_id'];
+	
 		//请确保 notify.php 和 return.php 判断代码一致
 		if($sign==$returnSign){
 			
 			$data=array(
 				'don_money'=>$pay_amt,
 				'don_time'=>date('Y-m-d H:i',time()),
-				'pro_id'=>$remark2[0],
+				'pro_id'=>$remark,
 				'user_id'=>$user_id
 				);
 			$this->donate->add_donate($data);
-			success('pro/thumb/'.$remark,"捐助成功");
+			success('pro/thumb2/'.$remark,"捐助成功");
 		}   //比较MD5签名结果 是否相等 确定交易是否成功  成功显示给客户信息
 		else{
 			error('捐助失败');
+		}
+	}
+	public function notify_url(){
+		$result=$_GET['result'];
+		$pay_message=$_GET['pay_message'];
+		$agent_id="1852365";;
+		$jnet_bill_no=$_GET['jnet_bill_no'];
+		$agent_bill_id=$_GET['agent_bill_id'];
+		$pay_type=$_GET['pay_type'];
+		
+		$pay_amt=$_GET['pay_amt'];
+		$remark=$_GET['remark'];
+		
+		$returnSign=$_GET['sign'];
+		
+		$key = '78A19858A9FD41EE8CAFE170';
+		
+		$signStr='';
+		$signStr  = $signStr . 'result=' . $result;
+		$signStr  = $signStr . '&agent_id=' . $agent_id;
+		$signStr  = $signStr . '&jnet_bill_no=' . $jnet_bill_no;
+		$signStr  = $signStr . '&agent_bill_id=' . $agent_bill_id;
+		$signStr  = $signStr . '&pay_type=' . $pay_type;
+		
+		$signStr  = $signStr . '&pay_amt=' . $pay_amt;
+		$signStr  = $signStr .  '&remark=' . $remark;
+		
+		$signStr = $signStr . '&key=' . $key;
+		
+		$sign='';
+		$sign=md5($signStr);
+		//请确保 notify.php 和 return.php 判断代码一致
+		if($sign==$returnSign){   //比较MD5签名结果 是否相等 确定交易是否成功  成功返回ok 否则返回error
+			echo 'ok';	
+		}
+		else{
+			echo 'error';	
 		}
 	}
 }

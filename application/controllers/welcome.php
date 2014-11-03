@@ -140,6 +140,7 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('help.html', $data, FALSE);
 	}
+	
 }
 
 /* End of file welcome.php */
