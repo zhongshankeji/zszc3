@@ -33,9 +33,9 @@ class Riser_info_model extends CI_Model {
 	}
 
 	function check_riser_pro_id($pro_id){
-		$data=$this->db->where(array('pro_id'=>$pro_id))->get('riser_info')->result_array();
+		$data=$this->db->where(array('pro_id'=>$pro_id))->get('pro_info')->result_array();
 		return $data;
-}
+	}
 	public function check_my_rise($uid)
 	{
 		$data=$this->db->select('riser_info.pro_id, pro_title, pro_goal, pro_end, pro_status')->from('riser_info')->join('pro_info','riser_info.pro_id=pro_info.pro_id')->where(array('user_id'=>$uid))->order_by('pro_id','asc')->get()->result_array();

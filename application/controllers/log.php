@@ -29,6 +29,10 @@ class Log extends CI_Controller {
 		 	'user_password'=>$user_passwordag
 		 	);
 		$this->session->set_userdata($data_session);
+		$this->load->helper('cookie');
+		$this->input->set_cookie('user_name',$data_session['user_name'],86500,'.allheart.cn');
+		$this->input->set_cookie('user_id',$user_id,86500,'.allheart.cn');
+
 	}
 	/**
 	 * 发送邮件
