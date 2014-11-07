@@ -87,7 +87,7 @@ class User_info_model extends CI_Model {
 	 *
 	 */
 	function check_riser_all_pro_id($pro_id){
-		$data=$this->db->from('pro_info')->join('user_info','pro_info.user_id=user_info.user_id')->where(array('pro_id'=>$pro_id))->get()->result_array();
+		$data=$this->db->from('pro_info')->join('user_info','pro_info.user_id=user_info.user_id')->where(array('pro_info.pro_id'=>$pro_id))->get()->result_array();
 		return $data;
 		}
 	/**
