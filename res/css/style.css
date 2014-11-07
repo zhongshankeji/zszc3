@@ -1773,10 +1773,10 @@ header .icon.circled {
 }
 #sub-nav {
     position: fixed;
-    top: 27%;
-    width: 100%;
+    top: 40%;
+    width: 70%;
     text-align: left;
-    padding: 1.5em 0 1.5em 0;
+    padding: 0.5em 0 0.5em 0;
     z-index: 9999;
     overflow: hidden;
 }
@@ -1785,12 +1785,12 @@ header .icon.circled {
     position: fixed;
     display: inline-block;
     margin: 0;
-    height: 21px;
+    /*height: 21px;*/
 }
 #sub-nav > ul > li {
     margin: -9px 0.5em 0 0.5em;
     border-radius: 0.5em;
-    padding: 0.85em;
+    padding: 0.25em;
     border: solid 1px transparent;
     -moz-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
     -webkit-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
@@ -1812,6 +1812,7 @@ header .icon.circled {
 #sub-nav > ul > li > ul {
     display: none;
 }
+
 .dropotron {
     background: rgba(255, 255, 255, 0.975);
     padding: 1em 1.25em 1em 1.25em;
@@ -1909,6 +1910,7 @@ header .icon.circled {
 /*********************************************************************************/
 
 #footer {
+    width: 100%;
     position: relative;
     overflow: hidden;
     padding: 6em 0 6em 0;

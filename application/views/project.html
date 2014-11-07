@@ -35,6 +35,11 @@
                                 <?php echo $pro[0][ 'pro_des'] ?>
                             </span>
                         </header>
+                        <?php if($pro[0][ 'pro_video']){ ?>
+            <p>
+                <embed src="<?php echo $pro[0]['pro_video'] ?>" allowfullscreen="ture" isAutoPlay=true quality="high" width="780" height="500" align="middle" type="application/x-shockwave-flash" flashvars="winType=index" style="visibility:visible;" />
+            </p>
+            <?php } ?>
                     <?php $this->load->view('pub/tab.html'); ?>
                 </article>
                 </div>
