@@ -26,7 +26,13 @@
 				<?php echo $value['don_money'] ?>
 			</td>
 			<td>
-				<?php echo $user_name[$value['user_id']][0]['user_name'] ?>
+				 <?php 
+				 if($value['user_id']){
+				 	 echo $user_name[$value['user_id']][0]['user_name'];
+				}else{
+				 	 echo '众善';
+				 }?>
+				 
 			</td>
 			<td>
 				<?php echo $pro_title[$value['pro_id']][0]['pro_title'] ?>

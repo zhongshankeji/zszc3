@@ -34,7 +34,7 @@ class Donate extends MY_Controller {
 		
 		foreach ($data['don'] as $key) {
 			$data['user_name'][$key['user_id']]=$this->pro_info->check_user_name($key['user_id']);
-			$data['pro_title'][$key['pro_id']]=$this->pro_info->check_name($key['pro_id']);
+ 			$data['pro_title'][$key['pro_id']]=$this->pro_info->check_name($key['pro_id']);
 		}
 		$this->load->view('admin/donate.html',$data	);
 	}

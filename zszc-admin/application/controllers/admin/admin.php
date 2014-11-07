@@ -16,7 +16,18 @@ class Admin extends MY_Controller{
 	 * 默认欢迎
 	 */
 	public function copy(){
-		$this->load->view('admin/copy.html');
+		$this->load->model('donate_model','donate_model');
+		$this->load->model('pro_info_model','pro_info');
+		//总的捐助金额
+		$data['money']=$this->donate_model->donate_check();
+		//当前天发起的项目
+		$data['new_pro']=$this->donate_model->pro_check(date('Y-m-d',time()));
+		//项目当前金额数
+		foreach ($data['new_pro'] as  $key) {
+			$data['current_money'][$key['pro_id']]=$this->pro_info->check_pro_all($key['pro_id']);
+		}
+		$this->load->model('pro_info_model','pro_info');
+		$this->load->view('admin/copy.html',$data);
 	}
 
 	/**

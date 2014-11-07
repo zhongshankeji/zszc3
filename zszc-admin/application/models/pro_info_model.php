@@ -120,6 +120,16 @@ class Pro_info_model extends CI_Model{
 		$name=$this->db->select('pro_title')->from('pro_info')->where(array('pro_id'=>$pro_id))->get()->result_array();
 		return $name;
 	}
+	//查询单个项目的捐助总金额
+	function check_pro_all($pro_id){
+		$data=$this->db->select('don_money')->from('donate')->where(array('pro_id'=>$pro_id))->get()->result_array();
+		$num=0;
+		$v=count($data);
+		foreach ($data as $v) {
+		
+		}
+		return $num;
+	}
 	
 }
 

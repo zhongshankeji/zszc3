@@ -8,39 +8,67 @@
 <body>
 	<table class="table">
 		<tr>
-			<td colspan='2' class="th"><span class="span_people">&nbsp</span>欢迎光临管理后台</td>
+			<td colspan='4' class="th">&nbsp</span>总融资金额</td>
 		</tr>
 		<tr>
-			<td>用户名</td>
-			<td><?php echo $this->session->userdata('user_name') ?></td>
+			<td style="width:570px">已筹集金额</td>
+			<td><?php echo $money[0]['don_money']  ?>&nbsp元</td>
+		</tr>
+		</table>
+		<table class="table">
+		<tr>
+			<td colspan='4' class="th">&nbsp</span>最新项目</td>
 		</tr>
 		<tr>
-			<td>登录时间</td>
-			<td><?php echo date('m-d',$this->session->userdata('logintime')) ?></td>
+			<td style="width:330px"><center><b>项目名</b></center></td>
+			<td style="width:223px"><center><b>项目状态</b></center></td>
+			<td><center><b>项目目标</b></center></td>
+			<td><center><b>目前金额</b></center></td>
 		</tr>
+		<?php foreach ($new_pro as $value): ?>
+			
+			<tr>
+				<td><?php echo $value['pro_title'] ?></td>
+				<td><?php 
+				switch ($value['pro_status']) {
+					case '0':
+						echo '正在进行';
+						break;
+					case '1':
+						echo '正在审核';
+						break;
+					case '2':
+						echo '已结束';
+						break;
+					default:
+						break;
+				}
+				 ?></td>
+				 <td>
+				 	<?php echo $value['pro_goal'] ?>
+				 </td>
+				 <td>
+				 	<?php echo $current_money[$value['pro_id']] ?>
+				 </td>
+			</tr>
+		<?php endforeach ?>
+		
+		</table>
+		<table class="table">
 		<tr>
-			<td>客户端IP</td>
-			<td><?php echo $this->input->ip_address() ?></td>
+			<td colspan='4' class="th">&nbsp服务器信息</td>
 		</tr>
+		
+
 		<tr>
-			<td colspan='2' class="th"><span class="span_server" style="float:left">&nbsp</span>服务器信息</td>
-		</tr>
-		<tr>
-			<td>服务器环境</td>
+			<td style="width:570px">服务器环境</td>
 			<td><?php echo $this->input->server('SERVER_SOFTWARE') ?></td>
 		</tr>
 		<tr>
 			<td>PHP版本</td>
 			<td><?php echo PHP_VERSION ?></td>
 		</tr>
-		<tr>
-			<td>服务器IP</td>
-			<td><?php echo $this->input->server('SERVER_ADDR') ?></td>
-		</tr>
-		<tr>
-			<td>数据库信息</td>
-			<td><?php echo mysql_get_server_info() ?></td>
-		</tr>
+
 
 </table>
 </body>

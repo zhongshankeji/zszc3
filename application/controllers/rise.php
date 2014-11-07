@@ -17,7 +17,10 @@ class Rise extends MY_Controller {
 	 */
 	public function pic_upload()
 	{
-		$config = Rise::pic_upload_config();
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$config['max_size'] = '10000';
+		$config['file_name'] = time() . mt_rand(1000,9999).'.jpg';
 		
 		$this->load->library('upload',$config);
 		$status=$this->upload->do_upload('pro_img');
@@ -28,7 +31,7 @@ class Rise extends MY_Controller {
 		$arr['create_thumb'] = FALSE;
 		$arr['maintain_ratio'] = TRUE;
 		$arr['width'] =368;
-		$arr['height'] =256;
+		// $arr['height'] =256;
 
 		$this->load->library('image_lib',$arr);
 		$status=$this->image_lib->resize();
@@ -40,15 +43,6 @@ class Rise extends MY_Controller {
 	/**
 	 * 配置图片上传
 	 */
-	public function pic_upload_config()
-	{
-		//上传图片
-		$config['upload_path'] = './uploads/';
-		$config['allowed_types'] = 'gif|jpg|png|jpeg';
-		$config['max_size'] = '10000';
-		$config['file_name'] = time() . mt_rand(1000,9999).'.jpg';
-		return $config;
-	}
 	/*****************************	 
 	 * 常规的加载视图函数，函数中需要有两个必备的变量
 	 * 一个是加载标题$data['title']
@@ -72,8 +66,8 @@ class Rise extends MY_Controller {
 	 */
 	public function p_rise(){
 		// 上传图片
-		Rise::pic_upload();
-
+		$info=Rise::pic_upload();
+		// p($info);die;
 		// 获取用户ID
 		$user_id=$this->session->userdata('user_id');
 		// 获取ueditor内容
