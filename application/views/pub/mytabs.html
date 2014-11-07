@@ -164,7 +164,7 @@ $(document).ready(function() {
                                     <?php switch ($v[ 'pro_status']) { case '0': echo '正在进行'; break; case '1': echo '正在审核'; break; case '2': echo '已结束'; break; case '3': echo '发起中'; break; default: echo '状态错误'; break; } ?>
                                 </td>
                                 <td>
-                                    <?php if ($v[ 'pro_status']==2) { ?>
+                                    <?php if ($v[ 'pro_status']==1) { ?>
                                         <a href="<?php echo site_url().'/rise/pro_edit/'.$v['pro_id'] ?>">编辑</a>| <a href="">删除</a>
                                    <?php  }else { ?>
                                         <a href="<?php echo site_url().'/pro/thumb/'.$v['pro_id'] ?>">查看</a>
