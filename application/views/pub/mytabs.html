@@ -57,28 +57,38 @@ $(document).ready(function() {
 <div id="tab-container" class='tab-container'>
     <ul class="etabs">
         <li class='tab'>
-            <a href="#risepro">我的信息</a>
+            <a href="#info">我的信息</a>
         </li>
-        <li class='tab'><a href="#donate">已发项目</a>
+        <li class='tab'><a href="#rise">已发项目</a>
         </li>
-        <li class='tab'><a href="#contract">已捐项目</a>
+        <li class='tab'><a href="#don">已捐项目</a>
         </li>
-        <li class='tab'><a href="#about">更改密码</a>
+        <li class='tab'><a href="#changepw">更改密码</a>
         </li>
-        <li class='tab'><a href="#contact">消息中心</a>
+        <li class='tab'><a href="#mess">消息中心</a>
         </li>
     </ul>
     <div class='panel-container'>
         <!--               我的信息-->
-        <div id="risepro" class="skel-cell-mainContent product">
+        <div id="info" class="skel-cell-mainContent product">
             <article id="main" class="special">
+              <section  id="banner">
+                  <h2>欢迎 <?php 
+                      $name = $this->session->userdata('user_name');
+                      if ($name) {
+                        echo $name;
+                      }else{
+                      echo "您";
+                      } 
+                ?> 加入众善网！</h2>
+              </section>
                 <section class="4u" style="padding-top:0px;">
                     <header>
                         <h3>您已经累计捐助项目
                             <?php echo $don_num ?>个</h3>
                     </header>
                     <p>
-                        <a href="#contract">查看详情</a>
+                        <a href="#don">查看详情</a>
                     </p>
                 </section>
                 <section class="4u">
@@ -87,7 +97,7 @@ $(document).ready(function() {
                             <?php echo $pro_num ?>个</h3>
                     </header>
                     <p>
-                        <a href="#donate">查看详情</a>
+                        <a href="#rise">查看详情</a>
                     </p>
 
                 </section>
@@ -97,7 +107,7 @@ $(document).ready(function() {
                             <?php echo $don_all ?>元</h3>
                     </header>
                     <p>
-                        <a href="#contract">查看详情</a>
+                        <a href="#don">查看详情</a>
                     </p>
                 </section>
             </article>
@@ -105,7 +115,7 @@ $(document).ready(function() {
         </div>
 
         <!--                已发项目               -->
-        <div id="donate" class="skel-cell-mainContent product">
+        <div id="rise" class="skel-cell-mainContent product">
             <?php if(empty($my_pro)){ ?>
             <article id="main" class="special">
                 <header>
@@ -167,7 +177,7 @@ $(document).ready(function() {
         </div>
 
         <!--                已捐项目               -->
-        <div id="contract" class="skel-cell-mainContent product">
+        <div id="don" class="skel-cell-mainContent product">
             <?php if($my_pro){ ?>
             <article id="main" class="special">
                 <header>
@@ -221,7 +231,7 @@ $(document).ready(function() {
         </div>
 
         <!--                更改密码  -->
-        <div id="about" class="skel-cell-mainContent product">
+        <div id="changepw" class="skel-cell-mainContent product">
             <article id="main" class="special">
                 <form action="<?php site_url('user/p_change') ?>" class="rise">
                     <div class="row no-collapse">
@@ -262,7 +272,7 @@ $(document).ready(function() {
         </div>
 
         <!--                消息中心  -->
-        <div id="contact" class="skel-cell-mainContent product">
+        <div id="mess" class="skel-cell-mainContent product">
             <article id="main" class="special">
                 <header>
                     <h2><a href="#" id="">尚未记录任何信息</a>
@@ -274,4 +284,4 @@ $(document).ready(function() {
             </article>
         </div>
     </div>
-  </div>
+</div>

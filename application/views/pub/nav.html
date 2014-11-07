@@ -12,11 +12,11 @@
             <?php if($this->session->userdata('user_name')) {?>
             <span><?php echo $this->session->userdata('user_name') ?></span>
             <ul>
-               <li><a href="<?php echo site_url('user/s_my') ?>">个人信息</a>
+               <li><a href="<?php echo site_url('user/s_my#info') ?>">个人信息</a>
                 </li>
-                <li><a href="<?php echo site_url('user/s_my') ?>">发起的项目</a>
+                <li><a href="<?php echo site_url('user/s_my#rise') ?>">发起的项目</a>
                 </li>
-                <li><a href="<?php echo site_url('user/s_my') ?>">捐助的项目</a>
+                <li><a href="<?php echo site_url('user/s_my#don') ?>">捐助的项目</a>
                 </li>
                 <li><a href="<?php echo site_url('log/quit') ?>">退出</a>
                 </li>
