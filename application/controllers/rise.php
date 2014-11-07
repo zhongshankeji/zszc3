@@ -125,7 +125,7 @@ class Rise extends MY_Controller {
 		
 		$user_id=$this->session->userdata('user_id');
 		$content = htmlspecialchars($this->input->post('editorValue'));
-		$pro_id= $this->uri->segment(3);
+		$pro_id= $this->input->post('pro_id')
 		// 更新项目表
 		$data=array(
 			'pro_title'=>$this->input->post('pro_title'),
