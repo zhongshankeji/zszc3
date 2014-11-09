@@ -141,6 +141,13 @@ class Pro_info_model extends CI_Model{
 	function check_all(){
 		$data=$this->db->where(array('pro_status'=>0))->order_by('pro_id', 'desc')->get('pro_info')->result_array();
 		return $data;
+	}	
+	/**
+	 * 查询项目类别
+	 */
+	public function check_class()
+	{
+		$data = $this->db->select('pro_class')->from('pro_info')->return_array();
 	}
 }
 

@@ -25,7 +25,6 @@ body.paused * {
 body {
     background: #f0f4f4;
     color: #5b5b5b;
-    /*font-family: 'Source Sans Pro', sans-serif;*/
     font:16px/1.8 "Microsoft Yahei",verdana;
     font-weight: 300;
     background-attachment: fixed;
@@ -47,6 +46,16 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
     font-weight: 600;
 }
+h1 {
+    font-size: 2.05em;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
 h2 {
     font-size: 1.85em;
     display: block;
@@ -1631,7 +1640,7 @@ header .icon.circled {
     background-image: url('../images/header.jpg');
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     color: #fff;
     text-align: center;
     padding: 2.5em 0 2em 0;
@@ -1663,15 +1672,15 @@ header .icon.circled {
     position: relative;
     z-index: 1;
     margin: 0;
-    padding: 4em 0 0 0;
+    padding: 2em 0 0 0;
 }
 #header h1 {
-    color: #fff;
-    font-size: 3em;
-    line-height: 1em;
+    color: #001;
+    font-size: 2em;
+    line-height: 1.3em;
 }
 .homepage #header h1 {
-    font-size: 4em;
+    font-size: 2.5em;
 }
 #header h1 a {
     color: inherit;
@@ -1913,7 +1922,7 @@ header .icon.circled {
     width: 100%;
     position: relative;
     overflow: hidden;
-    padding: 6em 0 6em 0;
+    /*padding: 6em 0 6em 0;*/
     background: #2b252c;
     color: #fff;
 }
@@ -1994,7 +2003,7 @@ header .icon.circled {
     position: absolute;
     top: 50%;
     margin: -1.5em 0 0 0;
-    background: url('images/arrow.svg') no-repeat center center;
+    background: url('./images/arrow.svg') no-repeat center center;
 }
 .carousel .forward:after {
     right: -0.25em;

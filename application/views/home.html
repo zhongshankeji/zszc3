@@ -3,20 +3,16 @@
     <!-- 大屏欢迎页 -->
     <div id="header">
         <!-- Inner -->
-        <div class="inner">
-            <header>
-                <h1><a href="#" id="logo">众善网 帮中国人做点好事儿！</a></h1>
-                <hr />
-                <span class="byline">众善网致力打造透明，高效，简洁的公益环境</span>
+        <div class="inner row" style="color:#000">
+        <div class="-3u 9u">            <header>
+                <h1>把慈善事业<br/>做成人人信任的透明口袋</h1>
             </header>
             <footer>
-                <?php if($this->session->userdata('user_name')){ ?>
-                                <a href="<?php echo site_url('welcome/donatelist') ?>" class="button circled scrolly">捐助项目</a>
-                <?php }else{ ?>
-                <a href="<?php echo site_url('log/s_signin') ?>" class="button circled scrolly">加入众善</a>
-                <?php } ?>
+                <a href="<?php echo site_url('welcome/donatelist') ?>" class="button circled scrolly">捐助项目</a>
             </footer>
         </div>
+        </div>
+
         <!-- Nav -->
         <?php $this->load->view('pub/nav.html'); ?>
     </div>
