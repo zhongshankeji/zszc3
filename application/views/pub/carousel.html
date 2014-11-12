@@ -15,7 +15,7 @@
                     </header>
                     <p> <?php echo $don_num[$key['pro_id']] ?>人捐助｜已捐助 <?php echo $pro_all[$key['pro_id']] ?>元</p>
                     <p>项目进度： <?php echo $process[$key['pro_id']] ?> %</p>
-                    <p><?php echo $key['pro_dur'] ?>天后结束筹款</p>
+                    <p><?php echo remainDay($key['pro_end'], date('Y-m-d',time()));?>天后结束筹款</p>
                     </div>
                 </article>
                 <?php endforeach ?>             
