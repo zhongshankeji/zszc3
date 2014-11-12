@@ -40,7 +40,6 @@ class Pro extends CI_Controller{
 	 * 项目详情页
 	 */
 	public function thumb(){
-		$this->load->helper('date');
 
 		$pro_id=$this->uri->segment(3);
 
@@ -58,7 +57,6 @@ class Pro extends CI_Controller{
 		$data['donator'] = $this->don->donator_check_all($pro_id);
 		$data['title'] = "项目详情";
 		$data['href']=$this->href->check_href();
-		
 		$this->load->view('project.html',$data);
 	}
 	public function thumb2(){

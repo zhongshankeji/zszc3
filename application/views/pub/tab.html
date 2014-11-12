@@ -100,7 +100,7 @@ $(document).ready(function() {
                                 <td style="width:300px;">
                                     <?php echo $key['user_name'] ?>
                                 </td>
-                                <td><?php echo $key['don_time']?></td>
+                                <td><?php echo date('Y-m-d',strtotime($key['don_time'])) ?></td>
                                 <td><?php echo $key['don_money'] ?>元
                             </tr>
                             <?php endforeach ?>

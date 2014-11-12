@@ -37,7 +37,7 @@ class Login extends CI_Controller{
 
 		$this->session->set_userdata($sessionData);
 		
-		success('admin/admin/index', '登陆成功');
+		redirect('admin/admin/index');
 
 	}
 	/**
