@@ -100,10 +100,7 @@ $(document).ready(function() {
                                 <td style="width:300px;">
                                     <?php echo $key['user_name'] ?>
                                 </td>
-                                <td><?php 
-                                $time1= $key['don_time'];
-                                echo ($time1)?>
-                                </td>
+                                <td><?php echo $key['don_time']?></td>
                                 <td><?php echo $key['don_money'] ?>元
                             </tr>
                             <?php endforeach ?>
