@@ -577,5 +577,27 @@ function p($arr){
 	print_r($arr);
 	echo '</pre>';
 }
+/**
+ * 计算两个日期之间的天数，日期较早的在前边例如
+ * remainDay('2012-12-11','2014-11-12');
+ */
+function remainDay($time1, $time2){
+	// $Date_1="2009-07-08";
+	// $Date_2="2009-06-08";
+	$Date_List_a1=explode("-",$time1);
+
+	$Date_List_a2=explode("-",$time2);
+
+	$d1=mktime(0,0,0,$Date_List_a1[1],$Date_List_a1[2],$Date_List_a1[0]);
+
+	$d2=mktime(0,0,0,$Date_List_a2[1],$Date_List_a2[2],$Date_List_a2[0]);
+	if(($d2-$d1)>0){
+		$Days=round(($d2-$d1)/3600/24);
+		return $Days;
+	}else{
+		$Days=round(($d1-$d2)/3600/24);
+		return $Days;
+	}
+}
 /* End of file Common.php */
 /* Location: ./system/core/Common.php */

@@ -63,12 +63,16 @@
                                     <h2>￥
                                         <?php echo $pro_all ?>
                                     </h2>
-                                    <p>该项目必须在 2014年11月1日 前得到
+                                    <p>该项目必须在<?php 
+                                    $pro_end_arr = explode('-', $pro[0]['pro_end']);
+                                    echo $pro_end_arr[0]."年".$pro_end_arr[1]."月".$pro_end_arr[2]."日"; ?> 前得到
                                         <?php echo $pro[0][ 'pro_goal'] ?>元 的支持才能成功！</p>
                                 </header>
                                 <p>
                                     <?php echo $don_num ?>人捐助｜20人喜欢｜30人订阅</p>
-                                <p>剩余时间：3 天</p>
+                                <p>剩余时间： <?php 
+                                            echo remainDay($pro[0]['pro_end'], date('Y-m-d',time()));
+                                        ?> 天</p>
                                 <form action="<?php echo site_url('don/sure_donate') ?>" method="post" class="donate" style="margin:0;">
                                     <p>捐助金额：
                                         <input type="text" value="" name="don_money" class="inputxt" datatype="/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/" nullmsg="请输入项目筹集金额！" errormsg="请输入正确的整数金额" placeholder="不少于1元">元</p>
