@@ -1651,7 +1651,7 @@ header .icon.circled {
 }
 .homepage #header .overlay {
     content: '';
-    background: #1C0920;
+    background: #fff;
     display: block;
     position: absolute;
     left: 0;
