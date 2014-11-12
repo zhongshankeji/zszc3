@@ -9,6 +9,7 @@ class Pro extends CI_Controller{
 		parent::__construct();
 		$this->load->model('user_info_model','user_info');
 		$this->load->model('pro_info_model','pro_info');
+		$this->load->model('donate_model','don');
 		$this->load->model('href_model','href');
 	}
 	/**
@@ -39,14 +40,8 @@ class Pro extends CI_Controller{
 	 * 项目详情页
 	 */
 	public function thumb(){
-		// $user_id=$this->uri->segment(4);
-		// if($user_id){
-		// 	// $user=$this->user_info->check_user_id($user_id);
-		// 	// $user_name=$user[0]['user_name'];
-		// 	$user_name=$this->input->cookie('user_name');
-		// 	Pro::write_session($user_id, $user_name);
+		$this->load->helper('date');
 
-		// }
 		$pro_id=$this->uri->segment(3);
 
 		$data['pro_id']=$pro_id;
@@ -59,8 +54,11 @@ class Pro extends CI_Controller{
 		// 项目发起人
 		$data['pro_user']=$this->pro_info->pro_user($pro_id);
 
+		//项目捐赠者
+		$data['donator'] = $this->don->donator_check_all($pro_id);
 		$data['title'] = "项目详情";
 		$data['href']=$this->href->check_href();
+		
 		$this->load->view('project.html',$data);
 	}
 	public function thumb2(){

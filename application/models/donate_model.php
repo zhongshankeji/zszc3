@@ -58,6 +58,18 @@ class Donate_model extends CI_Model{
 			return 0;
 		}
 	}
+	/**
+	 * 通过项目ID查询某个项目的捐助人信息（捐赠者，支持日期，捐赠金额）
+	 */
+	public function donator_check_all($pro_id)
+	{
+		$sql = "select user_name, don_money, don_time from zszc.zszc_user_info join zszc.zszc_donate where zszc.zszc_donate.user_id in( select zszc.zszc_donate.user_id from zszc.zszc_donate where pro_id = " . $pro_id . ")";		
+		$data = $this->db->query($sql);		
+		return $data->result_array();
+	}
+	/**
+	 * 添加捐助记录
+	 */
 	public function add_donate($data){
 		$this->db->insert('donate',$data);
 	}
