@@ -54,9 +54,14 @@ class Pro extends CI_Controller{
 		$data['pro_user']=$this->pro_info->pro_user($pro_id);
 
 		//项目捐赠者
-		$data['donator'] = $this->don->donator_check_all($pro_id);
+		$data['donate'] = $this->don->donator_check_all($pro_id);
+
+		foreach ($data['donate'] as  $value) {
+		 	$data['donator'][$value['user_id']]=$this->don->user_name_user_id($value['user_id']);
+		 }
 		$data['title'] = "项目详情";
 		$data['href']=$this->href->check_href();
+
 		$this->load->view('project.html',$data);
 	}
 	public function thumb2(){

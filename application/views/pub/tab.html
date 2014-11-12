@@ -75,7 +75,7 @@ $(document).ready(function() {
 
         </div>
         <div id="tabs1-css">
-            <?php if(!$donator){ ?>
+            <?php if(!$donate){ ?>
             <article id="main" class="special">
                 <header>
                     <h3><a href="#" id="">此项目期待您的捐助</a>
@@ -95,10 +95,10 @@ $(document).ready(function() {
                                 <th>支持日期</th>
                                 <th>支持金额</th>
                             </tr>
-                            <?php foreach ($donator as $key): ?>
+                            <?php foreach ($donate as $key): ?>
                             <tr>
                                 <td style="width:300px;">
-                                    <?php echo $key['user_name'] ?>
+                                    <?php echo $donator[$key['user_id']][0]['user_name'] ?>
                                 </td>
                                 <td><?php echo date('Y-m-d',strtotime($key['don_time'])) ?></td>
                                 <td><?php echo $key['don_money'] ?>元

@@ -14,10 +14,15 @@ class Check extends MY_Controller {
 		$user_name=$user[0]['user_name'];
 		//修改项目状态
 		$this->load->model('pro_info_model','pro_info');
-
+		//项目开始日期，截止日期
+		$pro_dur =$pro[0]['pro_dur'].' days';
+		$time_u = time();
+		$pro_start = date('Y-m-d',$time_u);
+		$pro_end = date('Y-m-d',strtotime($pro_dur,$time_u));
 		$data=array(
 			'pro_status'=>0,
-			'pro_start'=>date('Y-m-d:',time())
+			'pro_start'=>$pro_start,
+			'pro_end'=>$pro_end
 			);
 		$status=$this->pro_info->update_pro($pro_id,$data);
 		// 判断是否修改成功

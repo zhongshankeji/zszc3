@@ -63,10 +63,15 @@ class Donate_model extends CI_Model{
 	 */
 	public function donator_check_all($pro_id)
 	{
-		$sql = "select user_name, don_money, don_time from zszc.zszc_user_info join zszc.zszc_donate where zszc.zszc_donate.user_id in( select zszc.zszc_donate.user_id from zszc.zszc_donate where pro_id = " . $pro_id . ")";		
-		$data = $this->db->query($sql);		
-		return $data->result_array();
+			
+		$donate=$this->db->where(array('pro_id'=>$pro_id))->get('donate')->result_array();
+		
+		return $donate;
 	}
+	public function user_name_user_id($user_id){
+		$data=$this->db->select('user_name')->from('user_info')->where(array('user_id'=>$user_id))->get()->result_array();
+		return $data;
+	}	
 	/**
 	 * 添加捐助记录
 	 */
