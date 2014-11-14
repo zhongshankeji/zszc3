@@ -208,10 +208,8 @@ class Log extends CI_Controller {
 	 * 登录页面视图加载
 	 */
 	public function s_signin(){
-
 		$data['title'] = "登录";
 		$data['href']=$this->href->check_href();
-
 		$this->load->view('login.html',$data, FALSE);
 	}
 	/**
@@ -236,12 +234,10 @@ class Log extends CI_Controller {
 		$expire = "3600";
 		$key = "fuchao2012forzhongshankeji";
 
-		$encode_data = array( 
-		　　　'uid'=>$data[0]['user_id'], 
-		　　　'uname'=>$user_name,
-		　　　'expire'=>$expire
-		);
-		setcookie('syncuyan', des_encrypt(json_encode($encode_data), $key), time() + 3600, '/', 'www.allheart.cn');
+		$uid=$data[0]['user_id'];
+		$uname=$user_name;
+		$desstr = file_get_contents("http://api.uyan.cc?mode=des&uid=$uid&uname=".urlencode($uname)."&expire=$expire&key=".urlencode($key));
+		setcookie('syncuyan', $desstr, time() + 3600, '/', 'www.allheart.cn'); 
 	}
 	/**
 	 * 退出登录
