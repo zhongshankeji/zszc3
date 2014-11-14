@@ -3,6 +3,7 @@
 <!-- 表单验证需要的JS文件 -->
 <script src="<?php echo base_url().'res/org/' ?>validitor/Validform_v5.3.2.js"></script>
 <!-- 表单验证需要的css文件 -->
+
 <body class="right-sidebar">
     <!-- 大屏欢迎页 -->
     <div id="header">
@@ -23,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="8u skel-cell-mainContent" id="content">
-                                                    <!-- tab页项目详情 -->
+                    <!-- tab页项目详情 -->
                     <article id="main">
                         <header>
                             <h2>
@@ -35,13 +36,40 @@
                                 <?php echo $pro[0][ 'pro_des'] ?>
                             </span>
                         </header>
+                        <div class="-8u 4u">
+                            <!-- 项目的社会化分享 -->
+                            <!-- JiaThis Button BEGIN -->
+                            <div class="jiathis_style_32x32" style="position:relative;">
+                                <a class="jiathis_button_qzone"></a>
+                                <a class="jiathis_button_tsina"></a>
+                                <a class="jiathis_button_tqq"></a>
+                                <a class="jiathis_button_weixin"></a>
+                                <a href="http://www.jiathis.com/share?uid=1952014" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+                                <a class="jiathis_counter_style"></a>
+                            </div>
+                            <script type="text/javascript">
+                            var jiathis_config = {
+                                data_track_clickback: true,
+                                siteNum: 6,
+                                sm: "tsina,qzone,weixin,douban,renren,tieba",
+                                summary: "",
+                                boldNum: 5,
+                                shortUrl: true,
+                                hideMore: false
+                            }
+                            </script>
+                            <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1952014" charset="utf-8"></script>
+                            <!-- JiaThis Button END -->
+                        </div>
                         <?php if($pro[0][ 'pro_video']){ ?>
-            <p>
-                <embed src="<?php echo $pro[0]['pro_video'] ?>" allowfullscreen="ture" isAutoPlay=true quality="high" width="780" height="500" align="middle" type="application/x-shockwave-flash" flashvars="winType=index" style="visibility:visible;" />
-            </p>
-            <?php } ?>
-                    <?php $this->load->view('pub/tab.html'); ?>
-                </article>
+
+
+                        <p>
+                            <embed src="<?php echo $pro[0]['pro_video'] ?>" allowfullscreen="ture" isAutoPlay=true quality="high" width="780" height="500" align="middle" type="application/x-shockwave-flash" flashvars="winType=index" style="visibility:visible;" />
+                        </p>
+                        <?php } ?>
+                        <?php $this->load->view('pub/tab.html'); ?>
+                    </article>
                 </div>
 
 
@@ -49,7 +77,18 @@
                     <hr class="first" />
                     <section>
                         <header>
-                            <h3><a href="#" class="icon icon-heart">喜欢&nbsp;&nbsp;&nbsp;</a><a href="" class="icon icon-bookmark">订阅</a>
+                            <h3>
+                                <!-- JiaThis Button BEGIN -->
+                                <div class="jiathis_style">
+                                    <a class="jiathis_like_tsina"></a>
+                                </div>
+                                <script type="text/javascript">
+                                var jiathis_config = {
+                                    data_track_clickback: 'true'
+                                };
+                                </script>
+                                <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1952014" charset="utf-8"></script>
+                                <!-- JiaThis Button END -->
                             </h3>
                         </header>
                         <br>
@@ -63,16 +102,14 @@
                                     <h2>￥
                                         <?php echo $pro_all ?>
                                     </h2>
-                                    <p>该项目必须在<?php 
-                                    $pro_end_arr = explode('-', $pro[0]['pro_end']);
-                                    echo $pro_end_arr[0]."年".$pro_end_arr[1]."月".$pro_end_arr[2]."日"; ?> 前得到
+                                    <p>该项目必须在
+                                        <?php $pro_end_arr=e xplode( '-', $pro[0][ 'pro_end']); echo $pro_end_arr[0]. "年".$pro_end_arr[1]. "月".$pro_end_arr[2]. "日"; ?>前得到
                                         <?php echo $pro[0][ 'pro_goal'] ?>元 的支持才能成功！</p>
                                 </header>
                                 <p>
                                     <?php echo $don_num ?>人捐助｜20人喜欢｜30人订阅</p>
-                                <p>剩余时间： <?php 
-                                            echo remainDay($pro[0]['pro_end'], date('Y-m-d',time()));
-                                        ?> 天</p>
+                                <p>剩余时间：
+                                    <?php echo remainDay($pro[0][ 'pro_end'], date( 'Y-m-d',time())); ?>天</p>
                                 <form action="<?php echo site_url('don/sure_donate') ?>" method="post" class="donate" style="margin:0;">
                                     <p>捐助金额：
                                         <input type="text" value="" name="don_money" class="inputxt" datatype="/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/" nullmsg="请输入项目筹集金额！" errormsg="请输入正确的整数金额" placeholder="不少于1元">元</p>
