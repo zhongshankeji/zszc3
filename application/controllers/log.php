@@ -218,6 +218,24 @@ class Log extends CI_Controller {
 	 * 用户登录处理
 	 */
 	public function p_signin(){
+		// SSO
+		// $uid = "1952014";
+		// $uname = "zhongshan";
+		// $email = "zhongshanjr@163.com";
+		// $uface = "http://www.zhangsang.com/images/1.jpg";
+		// $ulink = "http://www.zhangsang.com";
+		// $expire = "3600";
+		// $key = "上面设置的‘认证密匙’";
+
+		// $encode_data = array( 
+		// 　　　'uid'=>$uid, 
+		// 　　　'uname'=>$uname, 
+		// 　　　'email'=>$email, 
+		// 　　　'uface'=>$uface, 
+		// 　　　'ulink'=>$ulink,
+		// 　　　'expire'=>$expire
+		// );
+		// setcookie('syncuyan', des_encrypt(json_encode($encode_data), $key), time() + 3600, '/', '');
 		$user_name=$this->input->post('user_name');
 		$user_password=$this->input->post('user_password');
 
