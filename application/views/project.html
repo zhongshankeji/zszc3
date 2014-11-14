@@ -27,11 +27,11 @@
                     <article id="main">
                         <header>
                             <h2>
-                                <a href="#">
+                                <a href="#" id="pro_title">
                                     <?php echo $pro[0][ 'pro_title'] ?>
                                 </a>
                             </h2>
-                            <span class="byline">
+                            <span class="byline" id="pro_des">
                                 <?php echo $pro[0][ 'pro_des'] ?>
                             </span>
                         </header>
@@ -51,11 +51,14 @@
                                 data_track_clickback:true,
                                 siteNum:6,
                                 sm:"tsina,qzone,weixin,douban,renren,tieba",
-                                summary:"",
+                                summary:$.trim(document.getElementById("pro_des").innerHTML),
                                 boldNum:5,
                                 shortUrl:true,
-                                hideMore:false
+                                hideMore:false,
+                                title:$.trim(document.getElementById("pro_title").innerHTML)
                             }
+                            console.log(jiathis_config);
+
                             </script>
                             <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1952014" charset="utf-8"></script>
                             <!-- JiaThis Button END -->
