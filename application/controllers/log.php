@@ -253,7 +253,7 @@ class Log extends CI_Controller {
 		$data['href']=$this->href->check_href();
 		$this->session->sess_destroy();
 		// 退出SSO
-		setcookie('syncuyan', 'logout', time() + 3600, '/', 'blog.jiathis.com');
+		setcookie('syncuyan', 'logout', time() + 3600, '/', 'www.allheart.cn');
 		$this->load->view('login.html',$data,FALSE);
 	}
 
