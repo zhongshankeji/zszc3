@@ -218,24 +218,8 @@ class Log extends CI_Controller {
 	 * 用户登录处理
 	 */
 	public function p_signin(){
-		// SSO
-		// $uid = "1952014";
-		// $uname = "zhongshan";
-		// $email = "zhongshanjr@163.com";
-		// $uface = "http://www.zhangsang.com/images/1.jpg";
-		// $ulink = "http://www.zhangsang.com";
-		// $expire = "3600";
-		// $key = "上面设置的‘认证密匙’";
+		
 
-		// $encode_data = array( 
-		// 　　　'uid'=>$uid, 
-		// 　　　'uname'=>$uname, 
-		// 　　　'email'=>$email, 
-		// 　　　'uface'=>$uface, 
-		// 　　　'ulink'=>$ulink,
-		// 　　　'expire'=>$expire
-		// );
-		// setcookie('syncuyan', des_encrypt(json_encode($encode_data), $key), time() + 3600, '/', '');
 		$user_name=$this->input->post('user_name');
 		$user_password=$this->input->post('user_password');
 
@@ -246,6 +230,17 @@ class Log extends CI_Controller {
 		}
 		// 写入session
 		Log::write_session($data[0]['user_id'], $user_name);
+		p($data);die;
+		// SSO
+		$expire = "3600";
+		$key = "fuchao2012forzhongshankeji";
+
+		$encode_data = array( 
+		　　　'uid'=>$data[0]['user_id'], 
+		　　　'uname'=>$user_name,
+		　　　'expire'=>$expire
+		);
+		setcookie('syncuyan', des_encrypt(json_encode($encode_data), $key), time() + 3600, '/', '');
 
 		redirect('welcome/index');
 	}
@@ -253,9 +248,12 @@ class Log extends CI_Controller {
 	 * 退出登录
 	 */
 	public function quit(){
+
 		$data['title'] = "登录";
 		$data['href']=$this->href->check_href();
 		$this->session->sess_destroy();
+		// 退出SSO
+		setcookie('syncuyan', 'logout', time() + 3600, '/', 'blog.jiathis.com');
 		$this->load->view('login.html',$data,FALSE);
 	}
 
