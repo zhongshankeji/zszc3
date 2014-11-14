@@ -35,7 +35,7 @@
                                 <?php echo $pro[0][ 'pro_des'] ?>
                             </span>
                         </header>
-                        <div class="-8u 4u">
+                        <div class="-7u 5u">
                             <!-- 项目的社会化分享 -->
                                 <!-- JiaThis Button BEGIN -->
                             <div class="jiathis_style_32x32">
@@ -43,6 +43,7 @@
                             <a class="jiathis_button_tsina"></a>
                             <a class="jiathis_button_tqq"></a>
                             <a class="jiathis_button_weixin"></a>
+                            <a class="jiathis_button_renren"></a>
                             <a href="http://www.jiathis.com/share?uid=1952014" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
                             <a class="jiathis_counter_style"></a>
                             </div>
@@ -52,13 +53,11 @@
                                 siteNum:6,
                                 sm:"tsina,qzone,weixin,douban,renren,tieba",
                                 summary:$.trim(document.getElementById("pro_des").innerHTML),
-                                boldNum:5,
+                                boldNum:6,
                                 shortUrl:true,
-                                hideMore:false,
+                                hideMore:true,
                                 title:$.trim(document.getElementById("pro_title").innerHTML)
                             }
-                            console.log(jiathis_config);
-
                             </script>
                             <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1952014" charset="utf-8"></script>
                             <!-- JiaThis Button END -->
@@ -80,15 +79,15 @@
                     <section>
                         <header>
                             <h3>
-<!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-    <a class="jiathis_like_tsina" data="width=120"></a>
-</div>
-<script type="text/javascript">
-var jiathis_config = {data_track_clickback:'true'};
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1952014" charset="utf-8"></script>
-<!-- JiaThis Button END -->
+                            <!-- JiaThis Button BEGIN -->
+                            <div class="jiathis_style">
+                                <a class="jiathis_like_tsina" data="width=120"></a>
+                            </div>
+                            <script type="text/javascript">
+                            var jiathis_config = {data_track_clickback:'true'};
+                            </script>
+                            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1952014" charset="utf-8"></script>
+                            <!-- JiaThis Button END -->
                          </h3>
                         </header>
                         <br>
@@ -141,24 +140,6 @@ var jiathis_config = {data_track_clickback:'true'};
                         <p>
                             项目发起人简介
                         </p>
-                        <div class="row half no-collapse">
-                            <div id="SOHUCS"></div>
-                            <script>
-                            (function() {
-                                var appid = 'cyri2fJ2c',
-                                    conf = 'prod_335ec843ca92e9586e80a73a153cc6b3';
-                                var doc = document,
-                                    s = doc.createElement('script'),
-                                    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
-                                s.type = 'text/javascript';
-                                s.charset = 'utf-8';
-                                s.src = 'http://assets.changyan.sohu.com/upload/changyan.js?conf=' + conf + '&appid=' + appid;
-                                h.insertBefore(s, h.firstChild);
-                                // e.preventDefault;
-                            })()
-                            </script>
-                        </div>
-
                         <footer>
                             <a href="#" class="button circled scrolly ">进入公益圈讨论</a>
                         </footer>
