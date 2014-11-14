@@ -70,9 +70,45 @@ $(document).ready(function() {
 
         </div>
         <div id="tabs1-js">
-            <h2>项目披露</h2>
+            <?php if(!$disc){ ?>
+            <article id="main" class="special">
+                <header>
+                    <h3><a href="#" id="">请及时上传披露</a>
+                    </h3>
+                    <h2> <a href="">详细的披露信息能够让您筹集更多的资金！</a>
+                    </h2>
+                </header>
 
+            </article>
+            <?php }else{ ?>
+            <article id="main" class="special">
+                <section>
+                    <table class="style1">
+                        <tbody>
+                            <tr>
+                                <th>编号</th>
+                                <th>时间</th>
+                                <th>地点</th>
+                                <th>描述</th>
+                            </tr>
+                            <?php 
+                            $num=1;
+                            foreach ($disc as $key): ?>
+                            <tr>
+                                <td>
+                                    <?php echo $num++; ?>
+                                </td>
+                                <td><?php echo date('Y-m-d',strtotime($key['dis_time'])) ?></td>
+                                <td><?php echo $key['dis_loc'] ?></td>
+                                <td style="width:300px;overflow:hidden;"><?php echo $key['dis_des'] ?></td>
+                            </tr>
+                            <?php endforeach ?>
+                        </tbody>
 
+                    </table>
+                </section>
+            </article>
+            <?php } ?>        
         </div>
         <div id="tabs1-css">
             <?php if(!$donate){ ?>
@@ -91,17 +127,23 @@ $(document).ready(function() {
                     <table class="style1">
                         <tbody>
                             <tr>
+                                <th>编号</th>
                                 <th>捐赠者</th>
                                 <th>支持日期</th>
                                 <th>支持金额</th>
                             </tr>
-                            <?php foreach ($donate as $key): ?>
+                            <?php 
+                            $num =1;
+                            foreach ($donate as $key): ?>
                             <tr>
+                                <td>
+                                    <?php echo $num++; ?>
+                                </td>
                                 <td style="width:300px;">
                                     <?php echo $donator[$key['user_id']][0]['user_name'] ?>
                                 </td>
                                 <td><?php echo date('Y-m-d',strtotime($key['don_time'])) ?></td>
-                                <td><?php echo $key['don_money'] ?>元
+                                <td><?php echo $key['don_money'] ?>元</td>
                             </tr>
                             <?php endforeach ?>
                         </tbody>

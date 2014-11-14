@@ -1,48 +1,65 @@
 <?php $this->load->view('pub/head.html'); ?>
+
 <body class="homepage">
     <!-- 大屏欢迎页 -->
     <div id="header">
         <!-- Inner -->
         <div class="inner row" style="color:#000">
-        <div class="-3u 9u">            <header>
-                <h1>把慈善事业<br/>做成人人信任的透明口袋</h1>
-            </header>
-            <footer>
-                <a href="<?php echo site_url('welcome/donatelist') ?>" class="button circled scrolly">捐助项目</a>
-            </footer>
-        </div>
+            <div class="-3u 9u">
+                <header>
+                    <h1>把慈善事业
+                        <br/>做成人人信任的透明口袋</h1>
+                </header>
+                <footer>
+                    <a href="<?php echo site_url('welcome/donatelist') ?>" class="button circled scrolly">捐助项目</a>
+                </footer>
+            </div>
         </div>
 
         <!-- Nav -->
         <?php $this->load->view('pub/nav.html'); ?>
     </div>
-        <!-- Banner -->
+    <!-- Banner -->
     <div id="banner">
-        <h2>你好！欢迎来到 <strong>众善网</strong>.</h2>
-        <span class="byline">
-                    众善，人人奉献一点爱心，世界就会不同。我们建造一个透明的公益平台，让大家放心的奉献爱心。
-                </span>
+        <h2>公益众筹</h2>
     </div>
     <div class="carousel">
-            <div class="reel">
-                <!-- <h2>推荐项目</h2> -->
-                 <?php foreach ($pro as $key ): ?>   
-                <article>
-                    <div class="card">
+        <div class="reel">
+            <!-- <h2>推荐项目</h2> -->
+            <?php foreach ($pro as $key ): ?>
+            <article>
+                <div class="card">
                     <a href="<?php echo site_url().'/pro/thumb/'.$key['pro_id'] ?>" class="image">
                         <img src="<?php echo base_url().'uploads/'.$key['pro_img'] ?>" alt="" />
                     </a>
                     <header>
-                        <h3><a href="<?php echo site_url().'/pro/thumb/'.$key['pro_id'] ?>"><?php echo $key['pro_title'] ?></a></h3>
+                        <h3>
+                            <a href="<?php echo site_url().'/pro/thumb/'.$key['pro_id'] ?>">
+                                <?php echo $key[ 'pro_title'] ?>
+                            </a>
+                        </h3>
                     </header>
-                    <p> <?php echo $don_num[$key['pro_id']] ?>人捐助｜已捐助 <?php echo $pro_all[$key['pro_id']] ?>元</p>
-                    <p><?php echo remainDay($key['pro_end'], date('Y-m-d',time())); ?>天后结束筹款</p>
+                    <p>
+                        <?php echo $don_num[$key[ 'pro_id']] ?>人捐助｜已捐助
+                        <?php echo $pro_all[$key[ 'pro_id']] ?>元</p>
+                    <p>
+                        <?php echo remainDay($key[ 'pro_end'], date( 'Y-m-d',time())); ?>天后结束筹款</p>
                 </div>
-                </article>
-                <?php endforeach ?>             
-            </div>
+            </article>
+            <?php endforeach ?>
         </div>
-    <!-- 页脚 -->
+    </div>
+    <!-- <div id="banner">
+        <h3>股权众筹</h3>
+    </div>
+    <div class="arousel">
+        <div class="banner">
+            <a href=""><img src="<?php echo base_url().'res/images/';?>pic01.jpg" alt=""></a>
+            <a href=""><img src="<?php echo base_url().'res/images/';?>pic01.jpg" alt=""></a>
+            <a href=""><img src="<?php echo base_url().'res/images/';?>pic01.jpg" alt=""></a>
+            <a href=""><img src="<?php echo base_url().'res/images/';?>pic01.jpg" alt=""></a>
+            <a href=""><img src="<?php echo base_url().'res/images/';?>pic01.jpg" alt=""></a>
+            <a href=""><img src="<?php echo base_url().'res/images/';?>pic01.jpg" alt=""></a>
+        </div>
+    </div> -->
 <?php $this->load->view('pub/foot.html'); ?>
-
-

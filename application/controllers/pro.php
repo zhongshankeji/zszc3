@@ -11,6 +11,8 @@ class Pro extends CI_Controller{
 		$this->load->model('pro_info_model','pro_info');
 		$this->load->model('donate_model','don');
 		$this->load->model('href_model','href');
+		$this->load->model('disclose_model','disc');
+
 	}
 	/**
 	 * 写入session
@@ -52,16 +54,16 @@ class Pro extends CI_Controller{
 		$data['don_num']=$this->pro_info->don_num($pro_id);
 		// 项目发起人
 		$data['pro_user']=$this->pro_info->pro_user($pro_id);
-
 		//项目捐赠者
 		$data['donate'] = $this->don->donator_check_all($pro_id);
 
 		foreach ($data['donate'] as  $value) {
 		 	$data['donator'][$value['user_id']]=$this->don->user_name_user_id($value['user_id']);
-		 }
+		}
+		//项目披露
+		$data['disc'] = $this->disc->check_disc_proid($pro_id);
 		$data['title'] = "项目详情";
 		$data['href']=$this->href->check_href();
-
 		$this->load->view('project.html',$data);
 	}
 	public function thumb2(){
@@ -83,7 +85,15 @@ class Pro extends CI_Controller{
 		$data['don_num']=$this->pro_info->don_num($pro_id);
 		// 项目发起人
 		$data['pro_user']=$this->pro_info->pro_user($pro_id);
+        //项目捐赠者
+		$data['donate'] = $this->don->donator_check_all($pro_id);
 
+		foreach ($data['donate'] as  $value) {
+		 	$data['donator'][$value['user_id']]=$this->don->user_name_user_id($value['user_id']);
+		}
+		//项目披露
+		$data['disc'] = $this->disc->check_disc_proid($pro_id);
+        
 		$data['title'] = "项目详情";
 		$data['href']=$this->href->check_href();
 		$this->load->view('project.html',$data);

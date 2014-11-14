@@ -4,32 +4,6 @@
 <head>
     <meta http-equipro="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . '/style/admin/css/public.css' ?>">
-    <script type="text/javascript" src="<?php echo base_url().'org/ueditor/ueditor.all.min.js' ?>"></script>
-    <script type="text/javascript">
-    window.UEDITOR_HOME_URL = "<?php echo base_url() ?>org/ueditor/";
-    window.onload = function() {
-        window.UEDITOR_CONFIG.initialFrameWidth = 650;
-        window.UEDITOR_CONFIG.initialFrameHeight = 450;
-        var editor = UE.getEditor('pro_text', {
-            //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个  
-            toolbars: [
-                ['bold', 'italic', 'underline', '|', 'insertimage', 'emotion', 'insertvideo', '|', 'link', 'unlink', '|', 'map', '|', 'customstyle', 'paragraph', 'fontfamily', 'fontsize']
-            ],
-            //focus时自动清空初始化时的内容  
-            autoClearinitialContent: false,
-            //关闭字数统计  
-            wordCount: false,
-            //关闭elementPath  
-            elementPathEnabled: false,
-            //默认的编辑区域高度  
-            initialFrameHeight: 300,
-
-            readonly: true
-            //更多其他参数，请参考ueditor.config.js中的配置项  
-        });
-    }
-    </script>
-    <script type="text/javascript" src="<?php echo base_url().'org/ueditor/ueditor.config.js' ?>"></script>
     <title>Document</title>
     <style type="text/css">
     span {

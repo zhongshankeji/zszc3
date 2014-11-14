@@ -35,11 +35,11 @@
                                         </div>
                                         <div class="8u">
                                             <!-- 修改项目名称判定条件，可以实现项目名称验证 -->
-                                            <input type="text" value="" name="pro_title" class="inputxt" datatype="*6-20" nullmsg="请输入项目名称！" errormsg="项目名称至少6个字,最多18个字！" placeholder="取一个吸引人的名字"/>
+                                            <input type="text" value="" name="pro_title" class="inputxt" datatype="*6-30" nullmsg="请输入项目名称！" errormsg="项目名称至少6个字,最多30个字！" placeholder="取一个吸引人的名字"/>
                                         </div>
                                         <div class="2u">
                                             <div class="Validform_checktip"></div>
-                                            <div class="info">项目名称至少6个字,最多18个字<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                            <div class="info">项目名称至少6个字,最多30个字<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
                                         </div>
                                     </div>
 
@@ -61,7 +61,7 @@
                                             <label for="筹集日期" >筹集日期</label>
                                         </div>
                                         <div class="4u">
-                                            <input type="text" value="" name="pro_dur" class="inputxt" datatype="n2-2" nullmsg="请输入项目筹集时长！" errormsg="筹集金额在10天到99天之间" placeholder="10~90天"/>天
+                                            <input type="text" value="" name="pro_dur" class="inputxt" datatype="n2-2" nullmsg="请输入项目筹集时长！" errormsg="筹集金额在10天到99天之间" placeholder="10~99天"/>天
                                         </div>
                                         <div class="2u">
                                             <div class="Validform_checktip"></div>
@@ -276,8 +276,12 @@
                                             <label for="开户支行">开户支行</label>
                                         </div>
                                         <div class="4u">
-                                            <input type="text" name="user_subbank_name" placeholder="请输入正确的支行名称">
+                                            <input type="text" name="user_subbank_name" placeholder="请输入正确的支行名称" class="inputxt" datatype="*" nullmsg="请输入支行名称！" errormsg="正确的支行名称为当地开户支行">
                                         </div>
+                                        <div class="2u">
+                                            <div class="Validform_checktip"></div>
+                                            <div class="info">正确的支行名称为当地开户支行<span class="dec"><s class="dec1">&#9670;</s><s class="dec2">&#9670;</s></span></div>
+                                        </div> 
                                     </div>
                                     <div class="12u">
                                         <div class="2u">
@@ -296,7 +300,7 @@
                                             <label for="银行账号">银行账号</label>
                                         </div>
                                         <div class="4u">
-                                            <input type="text" value="" name="user_bank_num" class="inputxt" datatype="n19-19" nullmsg="请输入正确的银行账号" errormsg="正确的银行账号是19位" placeholder="请谨慎输入银行账号，便于打款"/>
+                                            <input type="text" value="" name="user_bank_num" class="inputxt" datatype="n16-19" nullmsg="请输入正确的银行账号" errormsg="正确的银行账号是19位" placeholder="请谨慎输入银行账号，便于打款"/>
                                         </div>
                                         <div class="2u">
                                             <div class="Validform_checktip"></div>

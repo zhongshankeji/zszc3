@@ -29,6 +29,14 @@ class Disclose_model extends CI_Model {
 		$data=$this->db->where(array('disc_id'=>$disc_id))->get('disclose')->result_array();
 		return $data;
 	}
+/**
+ * 根据项目ID查询披露
+ */
+	function check_disc_proid($pro_id){
+		$data=$this->db->where(array('pro_id'=>$pro_id))->get('disclose')->result_array();
+		return $data;
+	}
+
 }
 
 /* End of file disclose_model.php */

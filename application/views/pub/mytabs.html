@@ -63,6 +63,10 @@ $(document).ready(function() {
         </li>
         <li class='tab'><a href="#don">已捐项目</a>
         </li>
+        <li class='tab'><a href="#like">喜欢的项目</a>
+        </li>
+        <li class='tab'><a href="#rss">订阅的项目</a>
+        </li>
         <li class='tab'><a href="#changepw">更改密码</a>
         </li>
         <li class='tab'><a href="#mess">消息中心</a>
@@ -235,7 +239,131 @@ $(document).ready(function() {
             
 
         </div>
+        <!-- 喜欢的项目 -->
+        <div id="like" class="skel-cell-mainContent product">
+            <?php if(empty($my_pro)){ ?>
+            <article id="main" class="special">
+                <header>
+                    <h3><a href="#" id="">尚未发起任何项目</a>
+                    </h3>
+                    <h2> <a href="<?php echo site_url('rise/s_rise') ?>">少年，点我发起新的项目吧！！</a>
+                    </h2>
+                    <span class="byline">
 
+                    </span>
+                </header>
+
+            </article>
+            <?php }else{ ?>
+
+            <article id="main" class="special">
+                <section>
+                    <table class="style1">
+                        <tbody>
+                            <tr>
+                                <th>项目名称</th>
+                                <th>发布日期</th>
+                                <th>截止日期</th>
+                                <th>筹资目标</th>
+                                <th>项目进度</th>
+                                <th>项目状态</th>
+                                <th>可用操作</th>
+                            </tr>
+
+                            <?php foreach ($my_pro as $v):?>
+                            <tr>
+                                <td style="width:300px;">
+                                    <a href="<?php echo site_url().'/pro/thumb/'.$v['pro_id'] ?>">
+                                        <?php echo $v[ 'pro_title'] ?>
+                                    </a>
+                                </td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>
+                                    <?php echo $v[ 'pro_goal'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $process[$v[ 'pro_id']]; ?>%
+                                </td>
+                                <td>
+                                    <?php switch ($v[ 'pro_status']) { case '0': echo '正在进行'; break; case '1': echo '正在审核'; break; case '2': echo '已结束'; break; case '3': echo '发起中'; break; default: echo '状态错误'; break; } ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo site_url().'/pro/thumb/'.$v['pro_id'] ?>">查看</a>
+                                </td>
+                            </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+
+                </section>
+            </article>
+            <?php } ?>
+            
+        </div>
+        <!-- 订阅的项目 -->
+        <div id="rss" class="skel-cell-mainContent product">
+            <?php if(empty($my_pro)){ ?>
+            <article id="main" class="special">
+                <header>
+                    <h3><a href="#" id="">尚未发起任何项目</a>
+                    </h3>
+                    <h2> <a href="<?php echo site_url('rise/s_rise') ?>">少年，点我发起新的项目吧！！</a>
+                    </h2>
+                    <span class="byline">
+
+                    </span>
+                </header>
+
+            </article>
+            <?php }else{ ?>
+
+            <article id="main" class="special">
+                <section>
+                    <table class="style1">
+                        <tbody>
+                            <tr>
+                                <th>项目名称</th>
+                                <th>发布日期</th>
+                                <th>截止日期</th>
+                                <th>筹资目标</th>
+                                <th>项目进度</th>
+                                <th>项目状态</th>
+                                <th>可用操作</th>
+                            </tr>
+
+                            <?php foreach ($my_pro as $v):?>
+                            <tr>
+                                <td style="width:300px;">
+                                    <a href="<?php echo site_url().'/pro/thumb/'.$v['pro_id'] ?>">
+                                        <?php echo $v[ 'pro_title'] ?>
+                                    </a>
+                                </td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>
+                                    <?php echo $v[ 'pro_goal'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $process[$v[ 'pro_id']]; ?>%
+                                </td>
+                                <td>
+                                    <?php switch ($v[ 'pro_status']) { case '0': echo '正在进行'; break; case '1': echo '正在审核'; break; case '2': echo '已结束'; break; case '3': echo '发起中'; break; default: echo '状态错误'; break; } ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo site_url().'/pro/thumb/'.$v['pro_id'] ?>">查看</a>|
+                                    <a href="<?php echo site_url().'/pro/thumb/'.$v['pro_id'] ?>">取消订阅</a>
+                                </td>
+                            </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+
+                </section>
+            </article>
+            <?php } ?>
+            
+        </div>
         <!--                更改密码  -->
         <div id="changepw" class="skel-cell-mainContent product">
             <article id="main" class="special">
