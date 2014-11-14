@@ -228,8 +228,6 @@ class Log extends CI_Controller {
 		}
 		// 写入session
 		Log::write_session($data[0]['user_id'], $user_name);
-
-		redirect('welcome/index');
 		// SSO
 		$expire = "3600";
 		$key = "fuchao2012forzhongshankeji";
@@ -238,6 +236,8 @@ class Log extends CI_Controller {
 		$uname=$user_name;
 		$desstr = file_get_contents("http://api.uyan.cc?mode=des&uid=$uid&uname=".urlencode($uname)."&expire=$expire&key=".urlencode($key));
 		setcookie('syncuyan', $desstr, time() + 3600, '/', 'www.allheart.cn'); 
+		redirect('welcome/index');
+		
 	}
 	/**
 	 * 退出登录
@@ -248,8 +248,9 @@ class Log extends CI_Controller {
 		$data['href']=$this->href->check_href();
 		$this->session->sess_destroy();
 		// 退出SSO
-		$this->load->view('login.html',$data,FALSE);
 		setcookie('syncuyan', 'logout', time() + 3600, '/', 'www.allheart.cn');
+
+		$this->load->view('login.html',$data,FALSE);
 	}
 
 }
