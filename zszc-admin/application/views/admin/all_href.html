@@ -15,6 +15,7 @@
 			<td>链接ID</td>
 			<td>链接名称</td>
 			<td>链接URL</td>
+			<td>链接操作</td>
 
 		</tr>
 		
@@ -23,6 +24,10 @@
 			<td><?php echo $v['href_id'] ?></td>
 			<td><?php echo $v['href_name'] ?></td>
 			<td><?php echo $v['href_url'] ?> </td>
+			<td>
+				<a href="<?php echo site_url('admin/admin/edit_href/'.$v['href_id'] )?>">编辑</a>
+				<a href="<?php echo site_url('admin/admin/delete_href/'.$v['href_id']) ?>">删除</a>
+			</td>
 		</tr>
 		<?php endforeach ?>
 	</table>

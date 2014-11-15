@@ -236,6 +236,7 @@ class Log extends CI_Controller {
 		$uname=$user_name;
 		$desstr = file_get_contents("http://api.uyan.cc?mode=des&uid=$uid&uname=".urlencode($uname)."&expire=$expire&key=".urlencode($key));
 		setcookie('syncuyan', $desstr, time() + 3600, '/', 'www.allheart.cn'); 
+		
 		redirect('welcome/index');
 		
 	}

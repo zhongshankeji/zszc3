@@ -88,5 +88,31 @@ class Admin extends MY_Controller{
 		$data['href']=$this->href->all_href();
 		$this->load->view('admin/all_href.html',$data);
 	}
+	/**
+	 * 删除友情链接
+	 */
+	public function delete_href(){
+		$href_id=$this->uri->segment('4');
+		$this->load->model('href_model','href');
+		$this->href->delete_href($href_id);
+		redirect('admin/admin/all_href');
+	}
+	public function edit_href(){
+		$href_id=$this->uri->segment('4');
+		$this->load->model('href_model','href');
+		$data['href']=$this->href->get_href($href_id);
 
+		$this->load->view('admin/edit_href.html',$data);
+	}
+	public function update_href(){
+		$href_id=$this->input->post('href_id');
+		
+		$data=array(
+			'href_name'=>$this->input->post('href_name'),
+			'href_url'=>$this->input->post('href_url')
+			);
+		$this->load->model('href_model','href');
+		$this->href->update_href($href_id,$data);
+		success('admin/admin/all_href','修改成功');
+	}
 }

@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * 栏目管理模型
+ * 用户管理员模型
  */
 class admin_user_model extends CI_Model{
 	/**
@@ -12,7 +12,7 @@ class admin_user_model extends CI_Model{
 	}
 
 	/**
-	 * 查看栏目
+	 * 查看
 	 */
 	public function check_all_admin(){
 		$data = $this->db->get('admin_user')->result_array();
@@ -21,7 +21,7 @@ class admin_user_model extends CI_Model{
 
 
 	/**
-	 * 查询对应栏目
+	 * 查询对应
 	 */
 	public function check_admin($user_id){
 		$data = $this->db->where(array('user_id'=>$user_id))->get('admin_user')->result_array();
@@ -33,7 +33,7 @@ public function check_admin_name($user_name){
 		return $data;
 	}
 	/**
-	 * 修改栏目
+	 * 修改
 	 */
 	public function update_admin($user_id, $data){
 		$this->db->update('admin_user', $data, array('user_id'=>$user_id));
@@ -41,7 +41,7 @@ public function check_admin_name($user_name){
 
 
 	/**
-	 * 删除栏目
+	 * 删除
 	 */
 	public function del_admin($user_id){
 		$this->db->delete('admin_user', array('user_id'=>$user_id));
@@ -49,7 +49,7 @@ public function check_admin_name($user_name){
 
 
 	/**
-	 * 调取导航栏栏目
+	 * 调取导航栏
 	 */
 	public function limit_category($limit){
 		$data = $this->db->limit($limit)->get('admin_user')->result_array();
