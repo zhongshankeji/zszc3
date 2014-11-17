@@ -135,12 +135,17 @@ class Pro_info_model extends CI_Model{
 		$data=$this->db->select('user_name')->from('pro_info')->join('user_info','pro_info.user_id=user_info.user_id')->where(array('pro_info.pro_id'=>$pro_id))->get()->result_array();
 		return $data;
 	}
-		/**
+	/**
 	 * 通过status查询项目所有信息
 	 */
-	function check_all(){
-		$data=$this->db->where(array('pro_status'=>0))->order_by('pro_id', 'desc')->get('pro_info')->result_array();
-		return $data;
+	function check_all($status){
+		$data=$this->db->where(array('pro_status'=>$status))->order_by('pro_id', 'desc')->get('pro_info')->result_array();
+		if ($data) {
+			return $data;
+		}else{
+			return 0;
+		}
+		
 	}	
 	/**
 	 * 查询项目类别

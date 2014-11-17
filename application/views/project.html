@@ -97,6 +97,9 @@
                                 <img src="<?php echo base_url().'uploads/'.$pro[0]['pro_img'] ?>" alt="" />
                             </a>
                                 <header>
+                                    <h2 class="-2u 10u"><?php 
+                                         switch ($pro[0]['pro_status']) { case '0': echo '正在进行'; break; case '1': echo '正在审核'; break; case '2': echo '已结束'; break; case '3': echo '发起中'; break; default: echo '状态错误'; break; } ?> </h2>
+
                                     <p>累计捐助</p>
                                     <h2>￥
                                         <?php echo $pro_all ?>
@@ -122,11 +125,13 @@
                                                 <s class="dec2">&#9670;</s>
                                             </span>
                                         </div>
-                                    <p>项目<?php 
-                                         switch ($pro[0]['pro_status']) { case '0': echo '正在进行'; break; case '1': echo '正在审核'; break; case '2': echo '已结束'; break; case '3': echo '发起中'; break; default: echo '状态错误'; break; } ?> </p>
                                     <input type="hidden" name="pro_id" value="<?php echo $pro_id ?>">
                                     <br class="clear">
-                                    <input type="submit" href="" class="button" value="立即捐助" style="width:100%;">
+                                    <?php if ($pro[0]['pro_status']) { ?>
+                                        <input type="" href="" class="button-disable" value="立即捐助" style="width:100%;backgroud;" disable>
+                                    <?php }else{ ?>
+                                        <input type="submit" href="" class="button" value="立即捐助" style="width:100%;">
+                                    <?php } ?>
                                 </form>
                             </div>
                         </article>

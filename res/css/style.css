@@ -374,6 +374,9 @@ form:-ms-input-placeholder {
 form::-moz-focus-inner {
     border: 0;
 }
+input.disable{
+    background: gray;
+}
 /*    发起项目的表单*/
 
 form.rise {
@@ -455,7 +458,7 @@ table.style1 tbody {}
 .button {
     position: relative;
     display: inline-block;
-    background: #df7366;
+    background: #33FF99;
     color: #fff;
     text-align: center;
     border-radius: 0.5em;
@@ -466,6 +469,24 @@ table.style1 tbody {}
     outline: 0;
 }
 .button:hover {
+    color: #fff;
+    background: #33FF33;
+}
+.button-disable{
+
+    position: relative;
+    display: inline-block;
+    background: #4e4e4e;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.5em;
+    text-decoration: none;
+    padding: 0.65em 3em 0.65em 3em;
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+}
+.button-disable:hover{
     color: #fff;
     background: #ef8376;
 }
