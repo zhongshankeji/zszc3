@@ -108,6 +108,10 @@ class Pro_info_model extends CI_Model{
 		$data=$this->db->select('user_name')->from('pro_info')->join('user_info','pro_info.user_id=user_info.user_id')->where(array('pro_id'=>$pro_id))->get()->result_array();
 		return $data;
 	}
+	function pro_useremail($pro_id){
+		$data=$this->db->select('user_email')->from('pro_info')->join('user_info','pro_info.user_id=user_info.user_id')->where(array('pro_id'=>$pro_id))->get()->result_array();
+		return $data;
+	}
 	function check_user($user_id){
 		$data=$this->db->where(array('user_id'=>$user_id))->get('user_info')->result_array();
 		return ($data);
@@ -130,7 +134,11 @@ class Pro_info_model extends CI_Model{
 		}
 		return $num;
 	}
-	
+	//通过截止日期查询项目
+	function chec_pro_end($pro_end){
+		$data=$this->db->where(array('pro_end'=>$pro_end))->get('pro_info')->result_array();
+		return $data;
+	}
 }
 
 /* End of file pro_info.php */

@@ -599,5 +599,6 @@ function remainDay($time1, $time2){
 		return $Days;
 	}
 }
+
 /* End of file Common.php */
 /* Location: ./system/core/Common.php */

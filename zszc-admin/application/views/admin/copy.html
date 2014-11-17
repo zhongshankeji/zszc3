@@ -16,8 +16,8 @@
 		</tr>
 		</table>
 		<table class="table">
-		<tr>
-			<td colspan='4' class="th">&nbsp</span>最新项目</td>
+			<tr>
+				<td colspan='4' class="th">&nbsp</span>最新项目</td>
 		</tr>
 		<tr>
 			<td style="width:330px"><center><b>项目名</b></center></td>
@@ -56,18 +56,43 @@
 		</table>
 		<table class="table">
 		<tr>
-			<td colspan='4' class="th">&nbsp服务器信息</td>
-		</tr>
-		
-
-		<tr>
-			<td style="width:570px">服务器环境</td>
-			<td><?php echo $this->input->server('SERVER_SOFTWARE') ?></td>
+			<td colspan='4' class="th">要截止的项目</td>
 		</tr>
 		<tr>
-			<td>PHP版本</td>
-			<td><?php echo PHP_VERSION ?></td>
+			<td style="width:330px"><center><b>项目名</b></center></td>
+			<td style="width:223px"><center><b>项目状态</b></center></td>
+			<td style="width:250px"><center><b>截至时间</b></center></td>
+			<td><center><b>操作</b></center></td>
 		</tr>
+		<?php foreach ($pro_end as $value): ?>
+			<tr>
+				<td>
+					<?php echo $value['pro_title'] ?>
+				</td>
+				<td>
+				<?php 
+				switch ($value['pro_status']) {
+					case '0':
+						echo '正在进行';
+						break;
+					case '1':
+						echo '正在审核';
+						break;
+					case '2':
+						echo '已结束';
+						break;
+					default:
+						break;
+				}
+				 ?>
+				</td>
+				<td>
+					<?php echo $value['pro_end'] ?>
+				</td>
+				<td><a href="<?php echo site_url('admin/admin/notice/'.$value['pro_id']) ?>">通知</a></td>
+			</tr>
+		<?php endforeach ?>
+				
 
 
 </table>
