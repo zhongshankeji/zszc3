@@ -148,7 +148,7 @@ class Don extends CI_Controller {
 				'user_id'=>$user_id
 				);
 			$this->donate->add_donate($data);
-			success('pro/thumb2/'.$remark,"捐助成功");
+			success('pro/thumb/'.$remark,"捐助成功");
 		}   //比较MD5签名结果 是否相等 确定交易是否成功  成功显示给客户信息
 		else{
 			error('捐助失败');

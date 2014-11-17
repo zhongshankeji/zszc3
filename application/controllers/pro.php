@@ -42,6 +42,12 @@ class Pro extends CI_Controller{
 	 * 项目详情页
 	 */
 	public function thumb(){
+		if ($this->uri->segment(4)) {
+			$user_id = $this->uri->segment(4);
+			$user=$this->user_info->check_user_id($user_id);
+			$user_name=$user['user_name'];
+			Pro::write_session($user_id, $user_name);
+		}
 
 		$pro_id=$this->uri->segment(3);
 
@@ -62,38 +68,7 @@ class Pro extends CI_Controller{
 		}
 		//项目披露
 		$data['disc'] = $this->disc->check_disc_proid($pro_id);
-		$data['title'] = "项目详情";
-		$data['href']=$this->href->check_href();
-		$this->load->view('project.html',$data);
-	}
-	public function thumb2(){
-		$user_id=$this->uri->segment(4);
-		
-		$user=$this->user_info->check_user_id($user_id);
-		$user_name=$user[0]['user_name'];
-		Pro::write_session($user_id, $user_name);
 
-		
-		$pro_id=$this->uri->segment(3);
-
-		$data['pro_id']=$pro_id;
-		// 项目信息
-		$data['pro']=$this->pro_info->check_pro($pro_id);
-		// 项目总捐助人数
-		$data['pro_all']=$this->pro_info->check_pro_all($pro_id);
-		// 项目捐助总额
-		$data['don_num']=$this->pro_info->don_num($pro_id);
-		// 项目发起人
-		$data['pro_user']=$this->pro_info->pro_user($pro_id);
-        //项目捐赠者
-		$data['donate'] = $this->don->donator_check_all($pro_id);
-
-		foreach ($data['donate'] as  $value) {
-		 	$data['donator'][$value['user_id']]=$this->don->user_name_user_id($value['user_id']);
-		}
-		//项目披露
-		$data['disc'] = $this->disc->check_disc_proid($pro_id);
-        
 		$data['title'] = "项目详情";
 		$data['href']=$this->href->check_href();
 		$this->load->view('project.html',$data);

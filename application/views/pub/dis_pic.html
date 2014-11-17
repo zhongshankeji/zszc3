@@ -1,0 +1,35 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'res/org/pic/css/'?>component.css" />
+<script src="<?php echo base_url().'res/org/pic/js/'?>modernizr.custom.js"></script>
+<style>
+	
+</style>
+
+    <!-- Top Navigation -->
+    <header>
+        <h1>图片披露
+            <span></span>
+        </h1>
+    </header>
+    <ul class="grid effect-6" id="grid">
+        <li>
+            <a href="">
+                <!--1. 判断是否存在图片 -->
+                <img src="<?php echo base_url().'uploads/disclose/'?>1.jpg">
+            </a>
+        </li>
+    </ul>
+
+<script src="<?php echo base_url().'res/org/pic/js/'?>masonry.pkgd.min.js"></script>
+<script src="<?php echo base_url().'res/org/pic/js/'?>imagesloaded.js"></script>
+<script src="<?php echo base_url().'res/org/pic/js/'?>classie.js"></script>
+<script src="<?php echo base_url().'res/org/pic/js/'?>AnimOnScroll.js"></script>
+<script>
+new AnimOnScroll(document.getElementById('grid'), {
+    minDuration: 0.4,
+    maxDuration: 0.7,
+    viewportFactor: 0.2
+});
+</script>
+</body>
+
+</html>
