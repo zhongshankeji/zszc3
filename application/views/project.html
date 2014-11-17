@@ -112,9 +112,9 @@
                                             echo remainDay($pro[0]['pro_end'], date('Y-m-d',time()));
                                         ?> 天</p>
                                 <form action="<?php echo site_url('don/sure_donate') ?>" method="post" class="donate" style="margin:0;">
-                                    <p>捐助金额：
-                                        <input type="text" value="" name="don_money" class="inputxt" datatype="/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/" nullmsg="请输入项目筹集金额！" errormsg="请输入正确的整数金额" placeholder="不少于1元">元</p>
-                                    <p>
+                                    捐助金额：
+                                        <input type="text" value="" name="don_money" class="inputxt" datatype="/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/" nullmsg="请输入项目筹集金额！" errormsg="请输入正确的整数金额" placeholder="不少于1元">元
+                                    
                                         <div class="Validform_checktip"></div>
                                         <div class="info">请填写捐助金额，最少1元
                                             <span class="dec">
@@ -122,7 +122,8 @@
                                                 <s class="dec2">&#9670;</s>
                                             </span>
                                         </div>
-                                    </p>
+                                    <p>项目<?php 
+                                         switch ($pro[0]['pro_status']) { case '0': echo '正在进行'; break; case '1': echo '正在审核'; break; case '2': echo '已结束'; break; case '3': echo '发起中'; break; default: echo '状态错误'; break; } ?> </p>
                                     <input type="hidden" name="pro_id" value="<?php echo $pro_id ?>">
                                     <br class="clear">
                                     <input type="submit" href="" class="button" value="立即捐助" style="width:100%;">
