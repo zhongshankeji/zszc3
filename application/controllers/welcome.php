@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
 
 	public function all_aproved_pro()
 	{
-		$data['pro']= $this->pro_info->check_all(0);
+		$data['pro']= $this->pro_info->check_all();
 		foreach ($data['pro'] as $key) {
 			//项目进度
 			$data['process'][$key['pro_id']]=$this->pro_info->pro_process($key['pro_id']);
@@ -33,22 +33,22 @@ class Welcome extends CI_Controller {
 		}
 		return $data;
 	}
-	public function all_finished_pro()
-	{
-		$data['pro']= $this->pro_info->check_all(2);
-		if ($data['pro']) {
-		foreach ($data['pro'] as $key) {
-			//项目进度
-			//捐助人数
-			$data['don_num'][$key['pro_id']]=$this->pro_info->don_num($key['pro_id']);
-			//总金额
-			$data['pro_all'][$key['pro_id']]=$this->pro_info->check_pro_all($key['pro_id']);
-		}
-		return $data;
-		}else{
-		return 0;
-	}
-	}
+	// public function all_finished_pro()
+	// {
+	// 	$data['pro']= $this->pro_info->check_all(2);
+	// 	if ($data['pro']) {
+	// 	foreach ($data['pro'] as $key) {
+	// 		//项目进度
+	// 		//捐助人数
+	// 		$data['don_num'][$key['pro_id']]=$this->pro_info->don_num($key['pro_id']);
+	// 		//总金额
+	// 		$data['pro_all'][$key['pro_id']]=$this->pro_info->check_pro_all($key['pro_id']);
+	// 	}
+	// 	return $data;
+	// 	}else{
+	// 	return 0;
+	// }
+	// }
 	/**
 	 * 分页函数
 	 */
@@ -133,20 +133,21 @@ class Welcome extends CI_Controller {
 	 */
 	public function donatelist()
 	{
+
+		$data = Welcome::all_aproved_pro();
+
 		// 调用分页方法
 		Welcome::pagination_my();
 		// 生成分页链接
 		$data['links'] = $this->pagination->create_links();
 
 				// 查询全部经过审核的项目
-		$data1 = Welcome::all_aproved_pro();
-		$data2 = Welcome::all_finished_pro();
+		// $data2 = Welcome::all_finished_pro();
 
-		$data = array('approve' => $data1,'finish'=>$data2 );
+		// $data = array('approve' => $data1,'finish'=>$data2 );
 
 		$data['title'] = "捐助项目";
 		$data['href']=$this->href->check_href();
-		p($data);die;
 		$this->load->view('donatelist.html', $data, FALSE);
 	}
 
