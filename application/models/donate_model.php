@@ -10,9 +10,13 @@ class Donate_model extends CI_Model{
 		$pro1=array();
 		$pro2='';
 		foreach ($data as $key => $value) {
-			$pro2=$this->db->select('pro_title')->where(array('pro_id'=>$value['pro_id']))->get('pro_info')->result_array();
-			$pro2[1]['don_time']=$data[$key]['don_time'];
-			$pro2[2]['don_money']=$data[$key]['don_money'];
+			// $pro2=$this->db->select('pro_id')->where(array('pro_id'=>$value['pro_id']))->get('pro_info')->result_array();
+			$pro2=$this->db->select('pro_id')->from('pro_info')->where(array('pro_id'=>$value['pro_id']))->get()->result_array();
+			$pro3=$this->db->select('pro_title')->from('pro_info')->where(array('pro_id'=>$value['pro_id']))->get()->result_array();
+			$pro2[1]=$pro3;
+			$pro2[2]['don_time']=$data[$key]['don_time'];
+			$pro2[3]['don_money']=$data[$key]['don_money'];
+
 			$pro1[$key]=$pro2 ;
 		}
 		if(is_null($pro1)){

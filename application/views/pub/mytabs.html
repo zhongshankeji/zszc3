@@ -187,7 +187,7 @@ $(document).ready(function() {
 
         <!--                已捐项目               -->
         <div id="don" class="skel-cell-mainContent product">
-            <?php if($my_pro){ ?>
+            <?php if(empty($my_don)){ ?>
             <article id="main" class="special">
                 <header>
                     <h3><a href="#" id="">尚未捐助任何项目</a>
@@ -216,18 +216,18 @@ $(document).ready(function() {
                             <?php foreach($my_don as $v): ?>
                             <tr>
                                 <td style="width:300px;">
-                                    <a href="<?php echo site_url().'/pro/thumb/'.$v[0][ 'pro_id'] ?>">
-                                        <?php echo $v[0][ 'pro_title'] ?>
+                                     <a href="<?php echo site_url().'/pro/thumb/'.$v[0][ 'pro_id'] ?>"> 
+                                        <?php echo $v[1][0][ 'pro_title'] ?>
                                     </a>
                                 </td>
                                 <td>
-                                    <?php echo $v[1][ 'don_time'] ?>
+                                    <?php echo $v[2][ 'don_time'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $v[2][ 'don_money'] ?>元</td>
+                                    <?php echo $v[3][ 'don_money'] ?>元</td>
                                 <td>无</td>
                                 <td>已付款</td>
-                                <td><a href="<?php echo site_url().'/pro/thumb/'.$v['pro_id'] ?>">查看</a></td>
+                                <td> <a href="<?php echo site_url().'/pro/thumb/'.$v[0]['pro_id'] ?>"> 查看</a></td>
                             </tr>
                             <?php endforeach ?>
                         </tbody>
