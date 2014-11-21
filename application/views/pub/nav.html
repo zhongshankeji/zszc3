@@ -1,29 +1,53 @@
-<nav id="nav">
-    <ul style="color:#000">
-        <li><a href="<?php echo site_url('welcome/index') ?>">首页</a>
-        </li>
-        <li><a href="<?php echo site_url('welcome/donatelist') ?>">捐助项目</a>
-        </li>
-        <li><a href="<?php echo site_url('rise/index') ?>">发起项目</a>
-        </li>
-        <li><a href="<?php  echo site_url('welcome/help') ?>">了解众善</a>
-        </li>
-        <li>
-            <?php if($this->session->userdata('user_name')) {?>
-            <span><?php echo $this->session->userdata('user_name') ?></span>
-            <ul>
-               <li><a href="<?php echo site_url('user/s_my#info') ?>">个人信息</a>
-                </li>
-                <li><a href="<?php echo site_url('user/s_my#rise') ?>">发起的项目</a>
-                </li>
-                <li><a href="<?php echo site_url('user/s_my#don') ?>">捐助的项目</a>
-                </li>
-                <li><a href="<?php echo site_url('log/quit') ?>">退出</a>
-                </li>
-            </ul>
-            <?php }else{ ?>
-            <span><a href="<?php echo site_url('log/s_signin') ?>">登录</a> </span>
-            <?php } ?>
-        </li>
-    </ul>
-</nav>
+<div class="container_wapper">
+    <div id="templatemo_banner_menu">
+        <div class="container-fluid">
+            <div class="col-xs-3 templatemo_logo">
+                <a rel="nofollow" href="http://www.allheart.cn">
+                    <img src="<?php echo base_url().'res/images/' ?>logo.png" id="logo_img" alt="dragonfruit free html5 template" />
+                </a>
+            </div>
+            <div class="col-sm-6 hidden-xs">
+                <ul class="nav nav-justified">
+                    <li><a href="<?php echo site_url('welcome/index') ?>">首页</a>
+                    </li>
+                    <li><a href="<?php echo site_url('welcome/donatelist') ?>">捐助项目</a>
+                    </li>
+                    <li><a href="<?php echo site_url('rise/index') ?>">发起项目</a>
+                    </li>
+                    <li><a href="<?php  echo site_url('welcome/help') ?>">了解众善</a>
+                    </li>
+                    <li>
+                        <?php if($this->session->userdata('user_name')) {?>
+                        <spana><a href="<?php echo site_url('user/s_my')?>"><?php echo $this->session->userdata('user_name') ?></a></span>
+                        <?php }else{ ?>
+                        <span><a href="<?php echo site_url('log/s_signin') ?>">登录</a> </span>
+                        <?php } ?>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-6 visible-xs">
+                <a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a>
+            </div>
+            <div class="col-xs-3 templatemo_slogan">
+                <a rel="nofollow" href="http://www.allheart.cn">
+                    <img src="<?php echo base_url().'res/images/' ?>slogan.png" id="logo_img" alt="dragonfruit free html5 template" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="templatemo_mobile_menu">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="<?php echo site_url('welcome/index') ?>"><i class="glyphicon glyphicon-home"></i> &nbsp; 首页</a></li>
+            <li><a href="<?php echo site_url('welcome/donatelist') ?>"><i class="glyphicon glyphicon-briefcase"></i> &nbsp; 捐助项目</a></li>
+            <li><a href="<?php echo site_url('rise/index') ?>"><i class="glyphicon glyphicon-bullhorn"></i> &nbsp; 发起项目</a></li>
+            <li><a href="<?php echo site_url('welcome/help') ?>"><i class="glyphicon glyphicon-calendar"></i> &nbsp; 了解众善</a></li>
+            <li><a href="<?php echo site_url('welcome/index') ?>">登录</a>
+                     <?php if($this->session->userdata('user_name')) {?>
+                        <spana><a href="<?php echo site_url('user/s_my')?>"><i class="glyphicon glyphicon-phone-alt"></i> &nbsp; <?php echo $this->session->userdata('user_name') ?></a></span>
+                        <?php }else{ ?>
+                        <span><a href="<?php echo site_url('log/s_signin') ?>"><i class="glyphicon glyphicon-phone-alt"></i> &nbsp; 登录</a> </span>
+                        <?php } ?>
+            </li>
+        </ul>
+</div>
