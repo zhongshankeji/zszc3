@@ -1,73 +1,85 @@
+
 <!-- Footer -->
 <div id="footer">
     <div class="container">
-        <!--                    <hr />-->
-        <div class="row">
-            <div class="-2u 8u">
-                <section>
-                    <ul class="image left" style="display:inline-flex">
-                        <li><a href="<?php echo site_url().'/welcome/help' ?>"> <img src="<?php echo base_url().'res/images/'?>about_01.png" alt=""></a></li>
-                        <li><a href="<?php echo site_url().'/welcome/help' ?>"> <img src="<?php echo base_url().'res/images/'?>about_02.png" alt=""></a></li>
-                        <li><a href="<?php echo site_url().'/welcome/help' ?>"> <img src="<?php echo base_url().'res/images/'?>about_03.png" alt=""></a></li>
-                        <li><a href="<?php echo site_url().'/welcome/help' ?>"> <img src="<?php echo base_url().'res/images/'?>about_04.png" alt=""></a></li>
-                    </ul>
-                </section>
-            </div>
-            <div class="12u">
-                <!-- Contact -->
-                <section class="contact">
-                    <header>
-                        <h3>友情链接</h3>
-                    </header>
-                    <p>
-                    <?php if($href){?>
-                        <?php foreach ($href as $value): ?>
-                            <a href="<?php echo $value['href_url'] ?>">&nbsp;<?php echo $value['href_name'] ?>&nbsp;&nbsp;</a>
-                        <?php endforeach ?>
-                        <?php }else{ ?>
-                        <a href=" <?php echo site_url('welcome/help') ?>">众善网诚邀您的加入</a>
-                        <?php } ?>
-                    </p>
-                    <ul class="icons" id="ff">
-                        <li>
-                            <a href="#" class="icon icon-renren">
-                                <span>人人</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="icon icon-weibo">
-                                <span>新浪</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="icon icon-weixin">
-                                <span>微信</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="icon icon-tencent-weibo">
-                                <span>腾讯微博</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="icon icon-qq">
-                                <span>公益群</span>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-                <!-- Copyright -->
-                <div class="copyright">
-                    <ul class="menu">
-			<li><a href="<?php echo base_url().'zszc-admin/index.php'?>">项目管理后台</a></li>
-                        <li>&copy; 众善科技. 版权所有</li>
-                    </ul>
+        <div class="slogan_footer_wrap">
+            <div id="templatemo_about" class="">
+                <div class="container-fluid">
+                    <div class="col-sm-6 col-md-3 about_icon">
+                        <div class="imgwap mission"><a href="<?php echo site_url().'/welcome/help' ?>"> <img src="<?php echo base_url().'res/images/'?>about_01.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 about_icon">
+                        <div class="imgwap mission"><a href="<?php echo site_url().'/welcome/help' ?>"> <img src="<?php echo base_url().'res/images/'?>about_02.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 about_icon">
+                        <div class="imgwap testimonial"><a href="<?php echo site_url().'/welcome/help' ?>"> <img src="<?php echo base_url().'res/images/'?>about_03.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 about_icon">
+                        <div class="imgwap statistic"><a href="<?php echo site_url().'/welcome/help' ?>"> <img src="<?php echo base_url().'res/images/'?>about_04.png" alt=""></a>
+                        </div>
+                    </div>
                 </div>
-
+            </div>
+        </div>
+        <div class="12u">
+            <!-- Contact -->
+            <section class="contact">
+                <header>
+                    <h3>友情链接</h3>
+                </header>
+                <p>
+                    <?php if($href){?>
+                    <?php foreach ($href as $value): ?>
+                    <a href="<?php echo $value['href_url'] ?>">&nbsp;<?php echo $value['href_name'] ?>&nbsp;&nbsp;</a>
+                    <?php endforeach ?>
+                    <?php }else{ ?>
+                    <a href=" <?php echo site_url('welcome/help') ?>">众善网诚邀您的加入</a>
+                    <?php } ?>
+                </p>
+                <ul class="icons" id="ff">
+                    <li>
+                        <a href="#" class="icon icon-renren">
+                            <span>人人</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon icon-weibo">
+                            <span>新浪</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon icon-weixin">
+                            <span>微信</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon icon-tencent-weibo">
+                            <span>腾讯微博</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon icon-qq">
+                            <span>公益群</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- Copyright -->
+            <div class="copyright">
+                <ul class="menu">
+                    <li><a href="<?php echo base_url().'zszc-admin/index.php'?>">项目管理后台</a>
+                    </li>
+                    <li>&copy; 众善科技. 版权所有</li>
+                </ul>
             </div>
 
         </div>
+
     </div>
+</div>
 </div>
 <div class="bottom_tools" style="font-size:11px;">
     <div class="qr_tool">二维码</div>
