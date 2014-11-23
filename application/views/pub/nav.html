@@ -18,9 +18,9 @@
                     </li>
                     <li>
                         <?php if($this->session->userdata('user_name')) {?>
-                        <spana><a href="<?php echo site_url('user/s_my')?>"><?php echo $this->session->userdata('user_name') ?></a></span>
+                        <a href="<?php echo site_url('user/s_my')?>"><?php echo $this->session->userdata('user_name') ?></a>
                         <?php }else{ ?>
-                        <span><a href="<?php echo site_url('log/s_signin') ?>">登录</a> </span>
+                        <a href="<?php echo site_url('log/s_signin') ?>">登录</a> 
                         <?php } ?>
                     </li>
                 </ul>

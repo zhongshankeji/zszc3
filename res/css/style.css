@@ -750,17 +750,17 @@ header .icon.circled {
 }
 #templatemo_mobile_menu ul li a {
     text-align: left;
-    background: #f15556;
+    background: #D4D4D4;
     color: #000;
 }
 #templatemo_mobile_menu ul li:hover a {
-    background: #c83233;
+    background: #D4D4D4;
     color: #fff;
 }
 #templatemo_banner_menu {
     width: 100%;
     background: #f9f9f9;
-    height: 94px;
+    height: 90px;
     border-bottom: 1px solid #f15556;
     position: fixed;
     top: 0;
@@ -778,89 +778,24 @@ header .icon.circled {
     color: #e35354;
 }
 #templatemo_banner_menu #logo_text span {
-    color: #9fb038;
+    color: #D4D4D4;
 }
 #templatemo_banner_menu ul li a ,
 #templatemo_banner_menu ul li a:focus {
     padding-top: 35px;
-    padding-bottom: 35px;
+    padding-bottom: 30px;
     font: normal normal normal 18px/23px 'Century Gothic', sans-serif;
     color: #000;
-    background: repeat-x url("../images/banner_bg.jpg") 0 -94px ;
     transition-duration: .5s;
 }
 #templatemo_banner_menu ul li a:hover ,
 #templatemo_banner_menu ul li a.current
 {
     background-position: 0 0px ;
-    background-color: #f15556;
+    background-color: #D4D4D4;
     color: #ffffff;
-}
-#templatemo_banner_menu #mobile_menu {
-    padding-top: 25px;
-    font-size: 30px;
-    float: right;
-    color: #e35354;
-}
-/*menu*/
-#templatemo_mobile_menu {
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background: #f9f9f9;
-    position: fixed;
-    z-index: 5500;
-    right: -1500px;
-    display: none;
-    overflow: auto;
-}
-#templatemo_mobile_menu ul li a {
-    text-align: left;
-    background: #f15556;
-    color: #000;
-}
-#templatemo_mobile_menu ul li:hover a {
-    background: #c83233;
-    color: #fff;
-}
-#templatemo_banner_menu {
-    width: 100%;
-    background: #f9f9f9;
-    height: 94px;
-    border-bottom: 1px solid #f15556;
-    position: fixed;
-    top: 0;
-    z-index: 5000;
-}
-#templatemo_banner_menu #logo_img {
-    max-height: 90px;
-    float: left; 
-}
-#templatemo_banner_menu #logo_text {
-    font: normal normal normal 36px/1em 'Century Gothic', sans-serif;
-    margin-top: 30px;
-    padding-left: 60px;
-    text-align: left;
-    color: #e35354;
-}
-#templatemo_banner_menu #logo_text span {
-    color: #9fb038;
-}
-#templatemo_banner_menu ul li a ,
-#templatemo_banner_menu ul li a:focus {
-    padding-top: 35px;
-    padding-bottom: 35px;
-    font: normal normal normal 18px/23px 'Century Gothic', sans-serif;
-    color: #000;
-    /*background: repeat-x url("../images/banner_bg.jpg") 0 -94px ;*/
-    transition-duration: .5s;
-}
-#templatemo_banner_menu ul li a:hover ,
-#templatemo_banner_menu ul li a.current
-{
-    background-position: 0 0px ;
-    background-color: #f15556;
-    color: #ffffff;
+    padding-bottom: 25px;
+    border-bottom: 8px solid #DC143C;
 }
 #templatemo_banner_menu #mobile_menu {
     padding-top: 25px;
@@ -874,9 +809,7 @@ header .icon.circled {
         background-image: url('../images/header.jpg');
         background-size: cover;
         background-position: center center;
-        background-attachment: fixed;
         background-repeat: no-repeat;
-        color: #fff;
         text-align: center;
         padding: 4em 0 0 0;
         cursor: default;
@@ -1044,6 +977,7 @@ header .icon.circled {
     display: none;
 }
 #sub-nav {
+    font-size: 1.5em;
     position: fixed;
     top: 40%;
     width: 70%;
@@ -1081,10 +1015,6 @@ header .icon.circled {
     outline: 0;
     line-height: 1.8em;
 }
-#sub-nav > ul > li > ul {
-    display: none;
-}
-
 .dropotron {
     background: rgba(255, 255, 255, 0.975);
     padding: 1em 1.25em 1em 1.25em;
