@@ -1,5 +1,8 @@
 <?php $this->load->view('pub/head.html'); ?>
-
+<script src=" <?php echo base_url().'res/js/filters.js' ?> "></script>
+<script>
+    $('.filters').filters();
+</script>
 <body class="no-sidebar">
     <!-- 页头 -->
     <div id="header">
@@ -22,7 +25,8 @@
         <section id="features" class="container">
             <header>
                 <!-- 此处显示项目类别 -->
-                <span class="byline"><a href="">公益</a>| <a href="">科技</a>| <a href="">艺术</a>| <a href="">出版</a>| 其他</span>
+                <span class="byline filters"><div class="filter"><a href="#" rel="all">全部</a>
+<a href="" rel="1">公益</a><a href="" rel="2">科技</a><a href="" rel="3">艺术</a><a href="" rel="4">出版</a><a href="" rel=4>已完成</a></span></div>
             </header>
             <div class="row">
                 <?php foreach ($pro as $key ): ?>

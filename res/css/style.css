@@ -1650,4 +1650,64 @@ header .icon.circled {
 .panel-container {
     margin-bottom: 10px;
 }
+/*filters*/
 
+.filters {
+float:left;
+clear:both;
+width:1000px;
+}
+
+.filters .filter {
+float:left;
+clear:both;
+width:960px;
+padding:20px;
+margin-bottom:20px;
+background:#545454;
+background:rgba(255, 255, 255, .1);
+}
+
+.filters .filter a {
+float:left;
+display:block;
+padding:5px;
+margin-right:20px;
+font-size:11px;
+text-transform:uppercase;
+outline:none;
+}
+
+.filters .filter .active {
+background:#eee;
+color:#111;
+}
+
+.filters .container {
+float:left;
+clear:both;
+width:100%;
+position:relative;
+}
+
+.filters .container ul,
+.filters .container ul li {
+display:block;
+list-style:none;
+padding:0;
+margin:0;
+}
+
+.filters .container ul li {
+float:left;
+margin:0 8px 8px 0;
+font-size:0;
+line-height:0;
+}
+
+.filters .container a {
+display:block;
+float:left;
+width:192px;
+height:192px;
+}
