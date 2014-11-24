@@ -57,7 +57,9 @@
 					已审核
 					
 				<?php } ?>
+				<?php if($v['pro_status']!=2){ ?>
 				[<a href="<?php echo site_url('admin/all_pro/delete_pro/'.$v['pro_id']) ?>">删除项目</a>]
+				<?php } ?>
 			</td>
 		</tr>
 		<?php endforeach ?>

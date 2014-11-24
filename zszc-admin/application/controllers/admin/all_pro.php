@@ -147,7 +147,11 @@ class All_pro extends MY_Controller{
 	}
 
 	function delete_pro($pro_id){
-		$this->pro->delete_pro($pro_id);
+		$pro_id=$this->uri->segment(4);
+		$data=array(
+			'pro_status'=>2
+			);
+		$this->pro->update_pro($pro_id,$data);
 		success('admin/all_pro/index','删除成功');
 	}
 
