@@ -140,14 +140,14 @@
                     <!--                    评论框-->
                     <section>
                         <header>
-                            <h3><a href="#">项目发起人： <?php echo $pro_user[0]['user_name'] ?> </a>
+                            <h3>上传披露图片
                             </h3>
                         </header>
                         <p>
-                            项目发起人简介
+                            格式为gif,jpg.png
                         </p>
                         <footer>
-                            <a href="#" class="button circled scrolly ">进入公益圈讨论</a>
+                            <form action="<?php echo site_url().'pro/uploads.php'?>" method="post" class="dropzone"></form>
                         </footer>
                     </section>
                 </div>
